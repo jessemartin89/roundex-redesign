@@ -5,3 +5,49 @@ body{
 	padding-top:10px;
 	font: $light 17px/25px $primaryFont;
 }
+
+h2{
+	font: $regular 30px/46px $primaryFont;
+	position: relative;
+    text-align: center;
+    z-index: 1; 
+    margin-bottom: 30px; 
+	span{
+		background-color:$mainBG;
+		padding:0 20px;
+	} //span
+	&:before {
+	    border-top: 3px solid $rhOrange;
+	    content:"";
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 24px; left: 0; right: 0; bottom: 0;
+	    width: 100%;
+	    z-index: -1;
+	} //before
+} //h2
+
+h4{
+	font-size:20px;
+	line-height:28px;
+	text-transform:uppercase;
+	font-weight: $regular;
+	color: rgb(48,48,48);
+	margin-bottom:3px;
+}
+
+a{
+	text-decoration:none;
+	color: $rhOrange;
+} //a
+
+input[type="submit"]{
+	border:none;
+}
+
+.aligncenter{
+	display:block;
+	margin:0 auto;
+}
+
+.alignright{float: right;}

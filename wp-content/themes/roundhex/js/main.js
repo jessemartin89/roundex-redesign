@@ -1,0 +1,1 @@
+jQuery(document).ready(function(a){a("input").bind("input propertychange",function(){a(this).val().length>0&&a("#mc_submit").addClass("orange")})});
