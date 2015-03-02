@@ -1,0 +1,85 @@
+// Susy setup --------------------------------------------
+$total-columns  : 7;
+$column-width   : 4.25em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+@include border-box-sizing;
+
+$small					: 420px;
+$medium					: 47em;
+$large					: 75em;
+
+.layout{
+	@include container;
+}
+.branding{
+	background-image:url('images/mock-embossed_smaller_pattern.jpg');
+
+	img{
+		width:133px;
+		margin:0 auto;
+		display:block;
+		padding:20px 0;
+	} //img
+} //branding
+
+// Navigation --------------------------------------------
+header nav#menu{
+	text-align:center;
+	li{
+		display:inline-block;
+		background-size:27px 27px;
+		background-repeat:no-repeat;
+		background-position:center top;
+		font-size:12px;
+		line-height:15px;
+		font-weight: $bold;
+		margin-right:40px;
+		a{
+			padding-top:40px;
+			display:inline-block;
+			text-decoration:none;
+			color: $black;
+			text-transform: uppercase;
+			padding-bottom:5px;
+		} //a
+		&.current-menu-item a{
+			border-bottom:5px solid $rhOrange;
+		}
+		&.portfolio{
+			background-image:url('images/portfolio-icon-grey.png');
+			&:hover, &.current-menu-item{
+				background-image:url('images/portfolio-icon-orange.png');
+			}
+		} //portfolio
+		&.home{
+			background-image:url('images/home-icon-grey.png');
+			&:hover, &.current-menu-item{
+				background-image:url('images/home-icon-orange.png');
+			}
+		} //home
+		&.about{
+			background-image:url('images/about-icon-grey.png');
+			&:hover, &.current-menu-item{
+				background-image:url('images/about-icon-orange.png');
+			}
+		} //about
+		&.contact{
+			background-image:url('images/contact-icon-grey.png');
+			margin-right:0;
+			&:hover, &.current-menu-item{
+				background-image:url('images/contact-icon-orange.png');
+			}
+		} //home
+	} //li
+} //header nav#menu
+
+// Home Page --------------------------------------------
+.home-blurb{
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:50px;
+	width: columns(6,7);
+	margin:0 auto;
+}
