@@ -19,5 +19,13 @@
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rh-logo-scribbled.png" alt="Round Hex">
 	</a>
 </div><!-- branding -->
+<?php 
+//add if mobile
+if(get_field('hero_image')){ ?>
+	<div class="hero" style="background-image:url('<?php the_field('hero_image'); ?>');"></div>
+<?php 
+		} //get_field('hero_image')
+?>
+
 </header>
 <div id="container">

@@ -30,7 +30,7 @@ header nav#menu{
 	text-align:center;
 	li{
 		display:inline-block;
-		background-size:27px 27px;
+		@include background-size(27px 27px);
 		background-repeat:no-repeat;
 		background-position:center top;
 		font-size:12px;
@@ -75,6 +75,17 @@ header nav#menu{
 		} //home
 	} //li
 } //header nav#menu
+
+// Hero --------------------------------------------
+div.hero{
+	position:relative;
+	display:block;
+	min-height:175px;
+	background-position: center top;
+	@include background-size(cover);
+	background-repeat:no-repeat;
+	margin: 0 auto;
+}
 
 // Home Page --------------------------------------------
 .home-blurb{

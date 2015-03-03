@@ -162,6 +162,9 @@ header nav#menu {
 /* line 31, _/components/sass/_layout.scss */
 header nav#menu li {
   display: inline-block;
+  -moz-background-size: 27px 27px;
+  -o-background-size: 27px 27px;
+  -webkit-background-size: 27px 27px;
   background-size: 27px 27px;
   background-repeat: no-repeat;
   background-position: center top;
@@ -218,18 +221,32 @@ header nav#menu li.contact:hover, header nav#menu li.contact.current-menu-item {
 }
 
 /* line 80, _/components/sass/_layout.scss */
+div.hero {
+  position: relative;
+  display: block;
+  min-height: 175px;
+  background-position: center top;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+/* line 91, _/components/sass/_layout.scss */
 .home-blurb {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 50px;
 }
 
-/* line 87, _/components/sass/_layout.scss */
+/* line 98, _/components/sass/_layout.scss */
 footer#footer {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 89, _/components/sass/_layout.scss */
+/* line 100, _/components/sass/_layout.scss */
 footer#footer #newsletter {
   background-image: url("images/mock-embossed_smaller_pattern.jpg");
   padding: 30px 0;
