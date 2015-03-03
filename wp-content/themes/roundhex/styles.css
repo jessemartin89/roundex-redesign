@@ -162,18 +162,27 @@ header nav#menu {
 /* line 31, _/components/sass/_layout.scss */
 header nav#menu li {
   display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  margin-right: 40px;
+  position: relative;
+}
+/* line 38, _/components/sass/_layout.scss */
+header nav#menu li:before {
+  height: 27px;
+  width: 27px;
+  position: absolute;
   -moz-background-size: 27px 27px;
   -o-background-size: 27px 27px;
   -webkit-background-size: 27px 27px;
   background-size: 27px 27px;
   background-repeat: no-repeat;
   background-position: center top;
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 700;
-  margin-right: 40px;
+  left: 50%;
+  margin-left: -13px;
 }
-/* line 40, _/components/sass/_layout.scss */
+/* line 48, _/components/sass/_layout.scss */
 header nav#menu li a {
   padding-top: 40px;
   display: inline-block;
@@ -182,45 +191,49 @@ header nav#menu li a {
   text-transform: uppercase;
   padding-bottom: 5px;
 }
-/* line 48, _/components/sass/_layout.scss */
+/* line 56, _/components/sass/_layout.scss */
 header nav#menu li.current-menu-item a {
   border-bottom: 5px solid #ff8b60;
 }
-/* line 51, _/components/sass/_layout.scss */
-header nav#menu li.portfolio {
+/* line 59, _/components/sass/_layout.scss */
+header nav#menu li.portfolio:before {
+  content: '';
   background-image: url("images/portfolio-icon-grey.png");
 }
-/* line 53, _/components/sass/_layout.scss */
-header nav#menu li.portfolio:hover, header nav#menu li.portfolio.current-menu-item {
+/* line 62, _/components/sass/_layout.scss */
+header nav#menu li.portfolio:before:hover, header nav#menu li.portfolio:before.current-menu-item {
   background-image: url("images/portfolio-icon-orange.png");
 }
-/* line 57, _/components/sass/_layout.scss */
-header nav#menu li.home {
+/* line 66, _/components/sass/_layout.scss */
+header nav#menu li.home:before {
+  content: '';
   background-image: url("images/home-icon-grey.png");
 }
-/* line 59, _/components/sass/_layout.scss */
-header nav#menu li.home:hover, header nav#menu li.home.current-menu-item {
+/* line 69, _/components/sass/_layout.scss */
+header nav#menu li.home:before:hover, header nav#menu li.home:before.current-menu-item {
   background-image: url("images/home-icon-orange.png");
 }
-/* line 63, _/components/sass/_layout.scss */
-header nav#menu li.about {
+/* line 73, _/components/sass/_layout.scss */
+header nav#menu li.about:before {
+  content: '';
   background-image: url("images/about-icon-grey.png");
 }
-/* line 65, _/components/sass/_layout.scss */
-header nav#menu li.about:hover, header nav#menu li.about.current-menu-item {
+/* line 76, _/components/sass/_layout.scss */
+header nav#menu li.about:before:hover, header nav#menu li.about:before.current-menu-item {
   background-image: url("images/about-icon-orange.png");
 }
-/* line 69, _/components/sass/_layout.scss */
-header nav#menu li.contact {
+/* line 80, _/components/sass/_layout.scss */
+header nav#menu li.contact:before {
+  content: '';
   background-image: url("images/contact-icon-grey.png");
   margin-right: 0;
 }
-/* line 72, _/components/sass/_layout.scss */
-header nav#menu li.contact:hover, header nav#menu li.contact.current-menu-item {
+/* line 84, _/components/sass/_layout.scss */
+header nav#menu li.contact:before:hover, header nav#menu li.contact:before.current-menu-item {
   background-image: url("images/contact-icon-orange.png");
 }
 
-/* line 80, _/components/sass/_layout.scss */
+/* line 92, _/components/sass/_layout.scss */
 div.hero {
   position: relative;
   display: block;
@@ -235,19 +248,19 @@ div.hero {
   margin: 0 auto;
 }
 
-/* line 92, _/components/sass/_layout.scss */
+/* line 104, _/components/sass/_layout.scss */
 .home-blurb {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 50px;
 }
 
-/* line 99, _/components/sass/_layout.scss */
+/* line 111, _/components/sass/_layout.scss */
 footer#footer {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 101, _/components/sass/_layout.scss */
+/* line 113, _/components/sass/_layout.scss */
 footer#footer #newsletter {
   background-image: url("images/mock-embossed_smaller_pattern.jpg");
   padding: 30px 0;
@@ -288,27 +301,118 @@ footer#footer #newsletter {
   transform: translateY(0px);
 }
 
-/* line 36, _/components/sass/_modules.scss */
+/* Icon Wobble Vertical */
+@-webkit-keyframes hvr-icon-wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes hvr-icon-wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+/* line 99, _/components/sass/_modules.scss */
+.hvr-icon-wobble-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* line 112, _/components/sass/_modules.scss */
+.hvr-icon-wobble-vertical:before {
+  content: "\f062";
+  position: absolute;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* line 121, _/components/sass/_modules.scss */
+.hvr-icon-wobble-vertical:hover:before, .hvr-icon-wobble-vertical:focus:before, .hvr-icon-wobble-vertical:active:before {
+  -webkit-animation-name: hvr-icon-wobble-vertical;
+  animation-name: hvr-icon-wobble-vertical;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+/* line 134, _/components/sass/_modules.scss */
 #featured-work-container .featured-work {
   margin-bottom: 35px;
 }
-/* line 38, _/components/sass/_modules.scss */
+/* line 136, _/components/sass/_modules.scss */
 #featured-work-container .featured-work img {
   width: 100%;
   margin-bottom: 15px;
 }
 
-/* line 46, _/components/sass/_modules.scss */
+/* line 144, _/components/sass/_modules.scss */
 #why-roundhex {
   text-align: center;
   padding-bottom: 70px;
 }
-/* line 49, _/components/sass/_modules.scss */
+/* line 147, _/components/sass/_modules.scss */
 #why-roundhex img {
   width: 100%;
   margin-bottom: 30px;
 }
-/* line 53, _/components/sass/_modules.scss */
+/* line 151, _/components/sass/_modules.scss */
 #why-roundhex a:after {
   content: '';
   background: url("images/right-arrow-thin.png") no-repeat center bottom;
@@ -319,13 +423,13 @@ footer#footer #newsletter {
   padding-left: 5px;
 }
 
-/* line 66, _/components/sass/_modules.scss */
+/* line 164, _/components/sass/_modules.scss */
 #newsletter p {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
 }
-/* line 71, _/components/sass/_modules.scss */
+/* line 169, _/components/sass/_modules.scss */
 #newsletter input#mc4wp_email {
   background-color: #faf9f9;
   font-size: 14px;
@@ -355,7 +459,7 @@ footer#footer #newsletter {
 #newsletter input#mc4wp_email::-webkit-input-placeholder {
   color: #cfcfcf;
 }
-/* line 84, _/components/sass/_modules.scss */
+/* line 182, _/components/sass/_modules.scss */
 #newsletter input#mc_submit {
   padding: 10px 15px;
   background-color: #8e8e8e;
@@ -365,13 +469,13 @@ footer#footer #newsletter {
   color: #e2e2e2;
   font-size: 14px;
 }
-/* line 90, _/components/sass/_modules.scss */
+/* line 188, _/components/sass/_modules.scss */
 #newsletter input#mc_submit.orange {
   background-color: #ff8b60;
   color: #ffffff;
 }
 
-/* line 97, _/components/sass/_modules.scss */
+/* line 195, _/components/sass/_modules.scss */
 #copyright {
   background-color: #ff8b60;
   color: #ffffff;

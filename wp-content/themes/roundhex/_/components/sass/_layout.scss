@@ -30,13 +30,21 @@ header nav#menu{
 	text-align:center;
 	li{
 		display:inline-block;
-		@include background-size(27px 27px);
-		background-repeat:no-repeat;
-		background-position:center top;
 		font-size:12px;
 		line-height:15px;
 		font-weight: $bold;
 		margin-right:40px;
+		position:relative;
+		&:before{
+			height:27px; 
+			width:27px;
+			position:absolute;
+			@include background-size(27px 27px);
+			background-repeat:no-repeat;
+			background-position:center top;
+			left: 50%;
+			margin-left:-13px;
+		} //li:before
 		a{
 			padding-top:40px;
 			display:inline-block;
@@ -48,25 +56,29 @@ header nav#menu{
 		&.current-menu-item a{
 			border-bottom:5px solid $rhOrange;
 		}
-		&.portfolio{
+		&.portfolio:before{
+			content: '';
 			background-image:url('images/portfolio-icon-grey.png');
 			&:hover, &.current-menu-item{
 				background-image:url('images/portfolio-icon-orange.png');
 			}
 		} //portfolio
-		&.home{
+		&.home:before{
+			content: '';
 			background-image:url('images/home-icon-grey.png');
 			&:hover, &.current-menu-item{
 				background-image:url('images/home-icon-orange.png');
 			}
 		} //home
-		&.about{
+		&.about:before{
+			content: '';
 			background-image:url('images/about-icon-grey.png');
 			&:hover, &.current-menu-item{
 				background-image:url('images/about-icon-orange.png');
 			}
 		} //about
-		&.contact{
+		&.contact:before{
+			content: '';
 			background-image:url('images/contact-icon-grey.png');
 			margin-right:0;
 			&:hover, &.current-menu-item{
