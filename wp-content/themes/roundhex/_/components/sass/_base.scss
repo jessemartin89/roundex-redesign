@@ -6,6 +6,8 @@ body{
 	font: $light 17px/25px $primaryFont;
 }
 
+i, em{font-style:italic;}
+
 h2{
 	font: $regular 30px/46px $primaryFont;
 	position: relative;

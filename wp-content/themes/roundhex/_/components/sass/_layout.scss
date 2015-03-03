@@ -13,6 +13,9 @@ $large					: 75em;
 .layout{
 	width: columns(6,7);
 	margin:0 auto;
+	img{
+		width: 100%;
+	}
 }
 .branding{
 	background-image:url('images/mock-embossed_smaller_pattern.jpg');
@@ -106,6 +109,18 @@ div.hero{
 	padding-top:20px;
 	padding-bottom:50px;
 }
+
+// Portfolio Page --------------------------------------------
+#portfolio{
+	padding: 30px 0 25px;
+}
+
+.feature{
+	margin-bottom:50px;
+	img{
+		margin: 10px 0 15px;
+	} //img
+} //.portfolio
 
 // Footer --------------------------------------------
 footer#footer{
