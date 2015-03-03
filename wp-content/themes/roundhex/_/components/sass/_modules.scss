@@ -1,3 +1,36 @@
+// Navigation --------------------------------------------
+/* Effect 4: bottom border enlarge */
+#menu a {
+	padding: 0 0 10px;
+	position:relative;
+}
+
+#menu a::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: $rhOrange;
+	content: '';
+	opacity: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+	transition: height 0.3s, opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+#menu a:hover::after,
+#menu a:focus::after {
+	height: 5px;
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
 // Featured Work --------------------------------------------
 #featured-work-container{
 	.featured-work{

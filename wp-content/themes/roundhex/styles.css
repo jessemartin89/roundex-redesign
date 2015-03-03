@@ -224,6 +224,7 @@ header nav#menu li.contact:hover, header nav#menu li.contact.current-menu-item {
 div.hero {
   position: relative;
   display: block;
+  width: 100%;
   min-height: 175px;
   background-position: center top;
   -moz-background-size: cover;
@@ -234,45 +235,80 @@ div.hero {
   margin: 0 auto;
 }
 
-/* line 91, _/components/sass/_layout.scss */
+/* line 92, _/components/sass/_layout.scss */
 .home-blurb {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 50px;
 }
 
-/* line 98, _/components/sass/_layout.scss */
+/* line 99, _/components/sass/_layout.scss */
 footer#footer {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 100, _/components/sass/_layout.scss */
+/* line 101, _/components/sass/_layout.scss */
 footer#footer #newsletter {
   background-image: url("images/mock-embossed_smaller_pattern.jpg");
   padding: 30px 0;
 }
 
+/* Effect 4: bottom border enlarge */
 /* line 3, _/components/sass/_modules.scss */
+#menu a {
+  padding: 0 0 10px;
+  position: relative;
+}
+
+/* line 8, _/components/sass/_modules.scss */
+#menu a::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ff8b60;
+  content: '';
+  opacity: 0;
+  -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+  transition: height 0.3s, opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+/* line 25, _/components/sass/_modules.scss */
+#menu a:hover::after,
+#menu a:focus::after {
+  height: 5px;
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+/* line 36, _/components/sass/_modules.scss */
 #featured-work-container .featured-work {
   margin-bottom: 35px;
 }
-/* line 5, _/components/sass/_modules.scss */
+/* line 38, _/components/sass/_modules.scss */
 #featured-work-container .featured-work img {
   width: 100%;
   margin-bottom: 15px;
 }
 
-/* line 13, _/components/sass/_modules.scss */
+/* line 46, _/components/sass/_modules.scss */
 #why-roundhex {
   text-align: center;
   padding-bottom: 70px;
 }
-/* line 16, _/components/sass/_modules.scss */
+/* line 49, _/components/sass/_modules.scss */
 #why-roundhex img {
   width: 100%;
   margin-bottom: 30px;
 }
-/* line 20, _/components/sass/_modules.scss */
+/* line 53, _/components/sass/_modules.scss */
 #why-roundhex a:after {
   content: '';
   background: url("images/right-arrow-thin.png") no-repeat center bottom;
@@ -283,13 +319,13 @@ footer#footer #newsletter {
   padding-left: 5px;
 }
 
-/* line 33, _/components/sass/_modules.scss */
+/* line 66, _/components/sass/_modules.scss */
 #newsletter p {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
 }
-/* line 38, _/components/sass/_modules.scss */
+/* line 71, _/components/sass/_modules.scss */
 #newsletter input#mc4wp_email {
   background-color: #faf9f9;
   font-size: 14px;
@@ -319,7 +355,7 @@ footer#footer #newsletter {
 #newsletter input#mc4wp_email::-webkit-input-placeholder {
   color: #cfcfcf;
 }
-/* line 51, _/components/sass/_modules.scss */
+/* line 84, _/components/sass/_modules.scss */
 #newsletter input#mc_submit {
   padding: 10px 15px;
   background-color: #8e8e8e;
@@ -329,13 +365,13 @@ footer#footer #newsletter {
   color: #e2e2e2;
   font-size: 14px;
 }
-/* line 57, _/components/sass/_modules.scss */
+/* line 90, _/components/sass/_modules.scss */
 #newsletter input#mc_submit.orange {
   background-color: #ff8b60;
   color: #ffffff;
 }
 
-/* line 64, _/components/sass/_modules.scss */
+/* line 97, _/components/sass/_modules.scss */
 #copyright {
   background-color: #ff8b60;
   color: #ffffff;

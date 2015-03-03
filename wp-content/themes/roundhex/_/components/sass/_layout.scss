@@ -80,6 +80,7 @@ header nav#menu{
 div.hero{
 	position:relative;
 	display:block;
+	width:100%;
 	min-height:175px;
 	background-position: center top;
 	@include background-size(cover);
