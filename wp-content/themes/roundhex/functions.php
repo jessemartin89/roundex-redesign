@@ -77,3 +77,28 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
   wp_register_script('livereload', 'http://localhost:35729/livereload.js?snipver=1', null, false, true);
   wp_enqueue_script('livereload');
 }
+
+//debugging print array/object
+function pa($array, $title = 'Print Out', $die = false, $backtrace_full = false, $special_chars = false, $display_none = false) {
+    if ($display_none != false) {
+        $display_none = ' style="display: none"';
+    }
+    $return = '<div ' . $display_none . '><pre>' . $title . '<br />';
+    $bt = debug_backtrace();
+    if ($backtrace_full) {
+        $return.= print_r($bt, true);
+    } else {
+        $return.= "Calling file: " . $bt[0]['file'] . ' line  ' . $bt[0]['line'] . '<br />';
+    }
+    
+    $return.= print_r($array, true);
+    if ($special_chars == true) {
+        $return = htmlspecialchars($return);
+    }
+    $return.= '</pre><br /><br /></div>';
+    echo $return;
+    
+    if ($die) {
+        die();
+    }
+}

@@ -103,24 +103,28 @@ div.hero{
 	margin: 0 auto;
 }
 
+.entry-content{
+	padding: 30px 0 70px;
+}
+
 // Home Page --------------------------------------------
 .home-blurb{
 	text-align:center;
-	padding-top:20px;
 	padding-bottom:50px;
 }
 
 // Portfolio Page --------------------------------------------
-#portfolio{
-	padding: 30px 0 25px;
-}
-
 .feature{
 	margin-bottom:50px;
 	img{
 		margin: 10px 0 15px;
 	} //img
 } //.portfolio
+
+// Projects --------------------------------------------
+.gallery-caption {
+	@include span-columns(4,7);
+}
 
 // Footer --------------------------------------------
 footer#footer{

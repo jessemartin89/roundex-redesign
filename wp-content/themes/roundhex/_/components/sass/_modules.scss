@@ -159,6 +159,131 @@
 	} //a:After
 }//why roundhex
 
+// Project ------------------------------
+.story-gallery{
+	margin-bottom:60px;
+	overflow:hidden;
+}
+.story-text{margin-bottom:20px;}
+#intro-blurb{padding-bottom:70px;}
+
+.photo-container{
+	position:relative;
+	overflow:hidden;
+	img{
+		width: 100%;
+	} //img
+	
+	li{
+		display:none;
+	}
+} //photo-container
+
+#testimonial{
+	min-height:270px;
+	@include background-size(cover);
+	background-repeat:no-repeat;
+	background-position:20%;
+	padding: 20px 0;
+	blockquote{
+		text-align:center;
+		color: $white;
+		p{
+			font-size: 25px;
+			line-height:34px;
+			font-style: italic;	
+			position:relative;
+			z-index: 2;
+		}
+		&:before, &:after{
+			content: '';
+			height:63px;
+			width: 79px;
+			position:absolute;
+		}
+		&:before{
+			background: url('images/left-quotes.png') no-repeat;
+			@include background-size(contain);	
+			margin-top:40px;
+			left:20px;
+		} //blockquote:before
+		&:after{
+			background: url('images/right-quotes.png') no-repeat;
+			@include background-size(contain);
+			margin-top: -90px;
+			right:15px;
+		} //blockquote:after
+	} //blockquote
+} //testimonial
+
+#testimonial-source{
+	text-align: center;
+	color: $white;
+	font-size:14px;
+	line-height:20px;
+	&:before{
+		content:"\2014";
+	} //testimonial-source:before
+}//testimonial-source
+
+#client-site{
+	a{
+		&:after{
+			content: '';
+			background: url('images/double-arrows.png') no-repeat;
+			height: 20px;
+			width: 15px;
+			@include background-size(contain);
+			position:absolute;
+		}
+	}
+}
+
+//gallery navigation
+.gallery-controls{
+	@include span-columns(3 omega, 7);
+	img{
+		width:19px;
+		height:27px;
+	}
+
+	.gskip_right{
+		float:right;
+	}
+
+	.gskip_left{float:left;}
+}
+
+// Project Navigation --------------------------------------------
+#project-pagination{
+	.next-arrow{
+		a{
+			left: 100%;
+			margin-left: -38px;
+		} // a
+	} //next arrow
+
+	.prev-arrow{
+		a{
+			left:-45px;
+		} 
+	} //prev arrow
+	a{
+		height: 38px;
+		width: 38px;
+		position: fixed;
+		z-index: 9;
+		top: 50%;
+		img{
+				height:38px;
+				-webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,.3));
+  				filter: drop-shadow(2px 2px 2px rgba(0,0,0,.3));
+			}
+		
+	} //a
+} //project-pagination
+
+
 // Footer --------------------------------------------
 #newsletter{
 	p{

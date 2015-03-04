@@ -32,11 +32,12 @@ h2{
 h4{
 	font-size:20px;
 	line-height:28px;
-	text-transform:uppercase;
 	font-weight: $regular;
 	color: rgb(48,48,48);
 	margin-bottom:3px;
 }
+
+footer h4{text-transform:uppercase;}
 
 a{
 	text-decoration:none;
@@ -53,3 +54,9 @@ input[type="submit"]{
 }
 
 .alignright{float: right;}
+
+.gallery-caption{
+	font-style:italic;
+	font-size:15px;
+	line-height:20px;
+}
