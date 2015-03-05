@@ -138,6 +138,7 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 </section>
 </article>
 <?php endwhile; endif; ?>
+<?php get_footer('project'); ?>
 </section>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.min.js"></script>
 <script>jQuery(document).ready(function(){

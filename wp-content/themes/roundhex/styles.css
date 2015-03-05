@@ -654,16 +654,44 @@ footer#footer #newsletter {
   width: 12px;
 }
 
+/* line 257, _/components/sass/_modules.scss */
+.more-work {
+  margin-bottom: 40px;
+  text-align: center;
+}
 /* line 260, _/components/sass/_modules.scss */
+.more-work img {
+  width: 95%;
+}
+/* line 263, _/components/sass/_modules.scss */
+.more-work.current-work {
+  background-color: rgba(0, 0, 0, 0.15);
+  position: relative;
+  padding: 10px 0 15px;
+}
+/* line 267, _/components/sass/_modules.scss */
+.more-work.current-work p#now-viewing {
+  color: #ffffff;
+  font-style: italic;
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 700;
+  top: 25%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 284, _/components/sass/_modules.scss */
 #project-pagination .next-arrow a {
   left: 100%;
   margin-left: -38px;
 }
-/* line 267, _/components/sass/_modules.scss */
+/* line 291, _/components/sass/_modules.scss */
 #project-pagination .prev-arrow a {
   left: -45px;
 }
-/* line 271, _/components/sass/_modules.scss */
+/* line 295, _/components/sass/_modules.scss */
 #project-pagination a {
   height: 38px;
   width: 38px;
@@ -671,20 +699,20 @@ footer#footer #newsletter {
   z-index: 9;
   top: 50%;
 }
-/* line 277, _/components/sass/_modules.scss */
+/* line 301, _/components/sass/_modules.scss */
 #project-pagination a img {
   height: 38px;
   -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
 }
 
-/* line 289, _/components/sass/_modules.scss */
+/* line 313, _/components/sass/_modules.scss */
 #newsletter p {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
 }
-/* line 294, _/components/sass/_modules.scss */
+/* line 318, _/components/sass/_modules.scss */
 #newsletter input#mc4wp_email {
   background-color: #faf9f9;
   font-size: 14px;
@@ -714,7 +742,7 @@ footer#footer #newsletter {
 #newsletter input#mc4wp_email::-webkit-input-placeholder {
   color: #cfcfcf;
 }
-/* line 307, _/components/sass/_modules.scss */
+/* line 331, _/components/sass/_modules.scss */
 #newsletter input#mc_submit {
   padding: 10px 15px;
   background-color: #8e8e8e;
@@ -724,13 +752,13 @@ footer#footer #newsletter {
   color: #e2e2e2;
   font-size: 14px;
 }
-/* line 313, _/components/sass/_modules.scss */
+/* line 337, _/components/sass/_modules.scss */
 #newsletter input#mc_submit.orange {
   background-color: #ff8b60;
   color: #ffffff;
 }
 
-/* line 320, _/components/sass/_modules.scss */
+/* line 344, _/components/sass/_modules.scss */
 #copyright {
   background-color: #ff8b60;
   color: #ffffff;

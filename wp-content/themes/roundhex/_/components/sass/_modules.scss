@@ -254,6 +254,30 @@
 	} //a
 } //client-site
 
+.more-work{
+	margin-bottom:40px;
+	text-align:center;
+	img{
+		width: 95%;
+	}
+	&.current-work{
+		background-color: rgba(0,0,0,.15);
+		position:relative;
+		padding: 10px 0 15px;
+		p#now-viewing{
+			color: $white;
+			font-style:italic;
+			font-size: 40px;
+			line-height:50px;
+			font-weight: $bold;
+			top: 25%;
+			position:absolute;
+			text-align: center;
+			width: 100%;
+		} //p#now-viewing
+	} //.more-work.current-work
+} //.more-work
+
 // Project Navigation --------------------------------------------
 #project-pagination{
 	.next-arrow{
