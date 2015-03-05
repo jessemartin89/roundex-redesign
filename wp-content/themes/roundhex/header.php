@@ -22,7 +22,14 @@
 <?php 
 //add if mobile
 if(get_field('hero_image')){ ?>
-	<div class="hero" style="background-image:url('<?php the_field('hero_image'); ?>');"></div>
+	<div class="hero" style="background-image:url('<?php the_field('hero_image'); ?>');">
+		<?php if(is_page_template( 'page-project.php' )){ ?>
+			<div id="project-header">
+				<h1><?php echo get_the_title(); ?></h1>
+				<h3><?php the_field('work'); ?></h3>
+			</div>
+		<?php } ?>
+	</div>
 <?php 
 		} //get_field('hero_image')
 ?>

@@ -80,14 +80,16 @@ header nav#menu{
 				background-image:url('images/about-icon-orange.png');
 			}
 		} //about
-		&.contact:before{
-			content: '';
-			background-image:url('images/contact-icon-grey.png');
-			margin-right:0;
-			&:hover, &.current-menu-item{
-				background-image:url('images/contact-icon-orange.png');
-			}
-		} //home
+		&.contact{	
+			margin-right:0;	
+			&:before{
+				content: '';
+				background-image:url('images/contact-icon-grey.png');
+				&:hover, &.current-menu-item{
+					background-image:url('images/contact-icon-orange.png');
+				}
+			} //contact:before
+		} //contact
 	} //li
 } //header nav#menu
 

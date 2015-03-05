@@ -154,7 +154,7 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 	</div>
 	<?php if(get_field('client_site')){ ?>
 		<div id="client-site">
-			<a href="<?php the_field('client_site'); ?>">visit website
+			<a href="<?php the_field('client_site'); ?>">visit website <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/double-arrows.png"></a>
 		</div>
 	<?php } ?>
 </div> <!-- testimonial -->

@@ -180,7 +180,7 @@
 } //photo-container
 
 #testimonial{
-	min-height:270px;
+	min-height:290px;
 	@include background-size(cover);
 	background-repeat:no-repeat;
 	background-position:20%;
@@ -188,6 +188,7 @@
 	blockquote{
 		text-align:center;
 		color: $white;
+		margin-bottom:15px;
 		p{
 			font-size: 25px;
 			line-height:34px;
@@ -221,23 +222,28 @@
 	color: $white;
 	font-size:14px;
 	line-height:20px;
+	margin-bottom:20px;
 	&:before{
 		content:"\2014";
 	} //testimonial-source:before
 }//testimonial-source
 
 #client-site{
+	text-align:center;
 	a{
-		&:after{
-			content: '';
-			background: url('images/double-arrows.png') no-repeat;
-			height: 20px;
-			width: 15px;
-			@include background-size(contain);
-			position:absolute;
-		}
-	}
-}
+		background-color: $rhOrange;
+		color: $white;
+		font-size:16px;
+		line-height:20px;
+		padding: 5px 20px;
+		font-weight: $regular;
+		@include border-radius;
+		img{
+			height: 12px;
+			width: 12px;
+		} //img
+	} //a
+} //client-site
 
 //gallery navigation
 .gallery-controls{
