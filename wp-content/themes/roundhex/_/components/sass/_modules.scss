@@ -160,6 +160,19 @@
 }//why roundhex
 
 // Project ------------------------------
+
+#project-header{
+	width:100%;
+	padding:15px 0;
+	text-align:center;
+	h1{
+		font-size:24px;
+		line-height:30px;
+	} //h1
+	h3{
+		font-size:16px;
+	}
+}
 .story-gallery{
 	margin-bottom:60px;
 	overflow:hidden;
@@ -173,10 +186,6 @@
 	img{
 		width: 100%;
 	} //img
-	
-	li{
-		display:none;
-	}
 } //photo-container
 
 #testimonial{
@@ -244,21 +253,6 @@
 		} //img
 	} //a
 } //client-site
-
-//gallery navigation
-.gallery-controls{
-	@include span-columns(3 omega, 7);
-	img{
-		width:19px;
-		height:27px;
-	}
-
-	.gskip_right{
-		float:right;
-	}
-
-	.gskip_left{float:left;}
-}
 
 // Project Navigation --------------------------------------------
 #project-pagination{

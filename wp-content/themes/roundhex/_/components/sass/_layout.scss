@@ -124,8 +124,51 @@ div.hero{
 } //.portfolio
 
 // Projects --------------------------------------------
-.gallery-caption {
+.bx-caption {
 	@include span-columns(4,7);
+}
+
+.bx-controls{
+	@include span-columns(3 omega,7);
+	margin-top:-60px;
+	position:relative;
+	z-index:3;
+	background-color: $mainBG;
+	text-align:right;
+	.bx-controls-direction{
+		a{
+			display:inline-block;
+			height:25px;
+			width:20px;
+		} //a
+	} //.bx-controls-direction
+	.bx-prev{
+		background-image: url('images/left-arrow-med-orange.png');
+		@include background-size(contain);
+		background-repeat:no-repeat;
+		&.disabled{
+			background-image: url('images/left-arrow-med-grey.png');
+			cursor: default;
+		} //bx-prev.disabled
+	} //bx-prev
+
+	.bx-next{
+		background-image: url('images/right-arrow-med-orange.png');
+		@include background-size(contain);
+		background-repeat:no-repeat;
+		margin-left:30px;
+		&.disabled{
+			background-image: url('images/right-arrow-med-grey.png');
+			cursor: default;
+		} //bx-next.disabled
+	} //bx-next
+} //bx-controls
+
+#project-header{
+	position:absolute;
+	bottom:0;
+	background-color: rgba(0,0,0,.61);
+	color: rgb(241,241,241);
 }
 
 // Footer --------------------------------------------

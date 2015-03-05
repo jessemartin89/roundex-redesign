@@ -49,7 +49,9 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 <div id="project-story">
 	<?php if( have_rows('identity_design_story') ): ?>
 	<h2><span>Identity Design</span></h2>
-		<?php while( have_rows('identity_design_story') ): the_row(); ?>
+		<?php 
+		$j =0;
+		while( have_rows('identity_design_story') ): the_row(); ?>
 		<div class="project-step layout">
 			<div class="story-text">
 				<?php the_sub_field('identity_design_step'); ?>
@@ -68,50 +70,30 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 					// pa($photoArray);
 				?>
 				<div class="photo-container">
-					<ul>
-					<?php for($i=0; $i < count($photoArray); $i++){ 
-						if( $i == 0) { ?>
-							<li style="display: block;"><img src="<?php echo $photoArray[$i][1];?>">
-						<?php } else { ?>
-							<li><img src="<?php echo $photoArray[$i][1];?>">
-						<?php } ?>
-					<div class="gallery-caption">
-						<?php echo $photoArray[$i][0]; ?>
-					</div>
-					<?php if(count($photoArray) > 1){ //if gallery ?> 
-					<div class="gallery-controls">
-						<div class="gskip_left">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/left-arrow-med-grey.png">
-						</div>
-						<div class="gskip_right">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right-arrow-med-orange.png" alt="">
-						</div>
-
-						<?php } ?> <!-- if gallery -->
-					</div> <!-- gallery controls -->
-					</li>
+					<ul class="bxslider identity-slider" id="<?php echo 'slider' . $j; ?>">
+					<?php for($i=0; $i < count($photoArray); $i++){ ?>
+						<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></li>
 					<?php } ?> <!-- for -->
-				</ul>
-					
+					</ul>
 				</div>
-				
-				
 			</div> <!-- story-gallery -->
 		</div> <!-- project-step -->
-		<?php endwhile; ?>
+		<?php $j++; endwhile; ?>
 	<?php endif; ?>
 	<?php if(have_rows('website_design_story')): ?>
 		<h2><span>Website Design</span></h2>
-		<?php while( have_rows('website_design_story') ): the_row(); ?>
+		<?php 
+		$w = 0;
+		while( have_rows('website_design_story') ): the_row(); ?>
 		<div class="web-step layout">
 			<div class="story-text">
 				<?php the_sub_field('website_design_step'); ?>
 			</div>
 			<div class="story-gallery">
 				<?php 
-					$gallery_photos = get_sub_field('web_step_gallery');
+					$web_gallery_photos = get_sub_field('web_step_gallery');
 					$webPhotoArray = array();
-					foreach( $gallery_photos as $photos){
+					foreach( $web_gallery_photos as $photos){
 						foreach($photos as $photo){
 							//get caption, thumbnail, and fullsize image for lightbox
 							$webPhotoArray[] = array($photo['caption'], $photo['url']);
@@ -121,26 +103,18 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 					// pa($photoArray);
 				?>
 				<div class="photo-container">
-					<img src="<?php echo $webPhotoArray[0][1];?>">
+					<ul class="bxslider website-slider" id="<?php echo 'slider' . $w; ?>">
+					<?php for($i=0; $i < count($webPhotoArray); $i++){ ?>
+						<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $webPhotoArray[$i][0];?>" src="<?php echo $webPhotoArray[$i][1];?>"></li>
+					<?php } ?> <!-- for -->
+					</ul>
 				</div>
-				<div class="gallery-caption">
-					<?php echo $webPhotoArray[0][0]; ?>
-				</div>
-				<?php if(count($webPhotoArray) > 1){ //if gallery ?> 
-				<div class="gallery-controls">
-					<div class="gskip_left">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/left-arrow-med-grey.png">
-					</div>
-					<div class="gskip_right">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/right-arrow-med-orange.png" alt="">
-					</div>
-
-					<?php } ?>
-				</div> <!-- gallery controls -->
 			</div> <!-- story-gallery -->
 		</div>
-
-		<?php endwhile; ?> <!-- while website_design_story -->
+	
+		<?php 
+		$w++;
+		endwhile; ?> <!-- while website_design_story -->
 
 	<?php endif; ?> <!-- end website_design_story -->
 </div> <!-- project-story -->
@@ -165,4 +139,24 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 </article>
 <?php endwhile; endif; ?>
 </section>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.min.js"></script>
+<script>jQuery(document).ready(function(){
+	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
+	var identitySliderCount = jQuery('.bxslider.identity-slider').length;
+	var webSliderCount = jQuery('.bxslider.website-slider').length;
+	// var sliderIndex = sliderCount - 1;
+	var k = 0;
+	while(k < identitySliderCount){
+		jQuery('.bxslider.identity-slider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
+		k++;
+	}
+
+	var ws = 0;
+	while(ws < webSliderCount){
+		jQuery('.bxslider.website-slider#slider' + ws).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
+		ws++;
+	}
+
+  
+});</script>
 <?php get_footer(); ?>
