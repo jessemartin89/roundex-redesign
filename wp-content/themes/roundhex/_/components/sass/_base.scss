@@ -3,8 +3,10 @@
 body{
 	background-color:$mainBG;
 	padding-top:10px;
-	font: $light 17px/25px $primaryFont;
+	font: $light 16px/25px $primaryFont;
 }
+
+p{margin-bottom:15px;}
 
 i, em{font-style:italic;}
 

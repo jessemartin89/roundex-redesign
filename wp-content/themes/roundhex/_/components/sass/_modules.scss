@@ -307,6 +307,53 @@
 	} //a
 } //project-pagination
 
+// About --------------------------------------------
+.team-member, .alum{
+	margin-bottom:70px;
+	img{
+		width: columns(4,7);
+		margin-bottom:10px;
+	} //img
+
+	h4{
+		font-weight: $bold;
+		font-size:18px;
+		line-height:22px;
+	} //h4
+	h5{
+		font-weight: $bold;
+		font-size:14px;
+		line-height:17px;
+		margin-bottom: 20px;
+	} //h5
+} //team-member
+
+#talent-pool{
+	text-align:center;
+	margin-bottom:80px;
+}
+
+#why-roundhex-full{
+	img{
+		width: columns(4,7);
+		margin-top: 55px;
+	} //img
+	h4{
+		font-weight: $bold;
+		font-size:18px;
+		line-height:22px;
+	} //h4
+	h5{
+		font-weight: $bold;
+		font-size:14px;
+		line-height:17px;
+		margin-bottom: 20px;
+		&~p{
+			font-size:15px;
+		}
+	} //h5
+} //why-roundhex-full
+
 
 // Footer --------------------------------------------
 #newsletter{

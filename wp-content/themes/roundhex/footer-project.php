@@ -1,5 +1,6 @@
-<div id="more-work-footer" class="layout">
+<div id="more-work-footer">
 	<h2><span>More Work</span></h2>
+	<div class="layout">
 	<?php
 
 		$ancestors = get_post_ancestors( $post->ID );
@@ -33,4 +34,5 @@
 		<?php }
 
 	?>
-</div>
+	</div> <!-- layout -->
+</div> <!-- more-work-footer -->

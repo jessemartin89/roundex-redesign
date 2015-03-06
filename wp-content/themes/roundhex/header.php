@@ -9,7 +9,11 @@
 </head>
 <?php global $post; $post_slug=$post->post_name; ?>
 <body <?php body_class($post_slug); ?>>
-<div id="wrapper" class="hfeed">
+<?php if(is_page_template( 'page-project.php' )){ ?>	
+	<div id="wrapper" class="hfeed scene_element--fadeinright">
+<?php } else { ?>
+	<div id="wrapper" class="hfeed">
+<?php } ?>
 <header id="header" role="banner">
 <nav id="menu" role="navigation">
 	<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>

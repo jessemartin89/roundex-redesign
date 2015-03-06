@@ -64,19 +64,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/** An element that fades in and slides from the right */
+/* line 14, _/components/sass/_mixins.scss */
+.scene_element--fadeinright {
+  animation-name: fadeInRight;
+}
+
 /* line 3, _/components/sass/_base.scss */
 body {
   background-color: #faf9f9;
   padding-top: 10px;
-  font: 300 17px/25px "Lato", sans-serif;
+  font: 300 16px/25px "Lato", sans-serif;
 }
 
 /* line 9, _/components/sass/_base.scss */
+p {
+  margin-bottom: 15px;
+}
+
+/* line 11, _/components/sass/_base.scss */
 i, em {
   font-style: italic;
 }
 
-/* line 11, _/components/sass/_base.scss */
+/* line 13, _/components/sass/_base.scss */
 h2 {
   font: 400 30px/46px "Lato", sans-serif;
   position: relative;
@@ -84,12 +105,12 @@ h2 {
   z-index: 1;
   margin-bottom: 30px;
 }
-/* line 17, _/components/sass/_base.scss */
+/* line 19, _/components/sass/_base.scss */
 h2 span {
   background-color: #faf9f9;
   padding: 0 20px;
 }
-/* line 21, _/components/sass/_base.scss */
+/* line 23, _/components/sass/_base.scss */
 h2:before {
   border-top: 3px solid #ff8b60;
   content: "";
@@ -103,7 +124,7 @@ h2:before {
   z-index: -1;
 }
 
-/* line 32, _/components/sass/_base.scss */
+/* line 34, _/components/sass/_base.scss */
 h4 {
   font-size: 20px;
   line-height: 28px;
@@ -112,34 +133,34 @@ h4 {
   margin-bottom: 3px;
 }
 
-/* line 40, _/components/sass/_base.scss */
+/* line 42, _/components/sass/_base.scss */
 footer h4 {
   text-transform: uppercase;
 }
 
-/* line 42, _/components/sass/_base.scss */
+/* line 44, _/components/sass/_base.scss */
 a {
   text-decoration: none;
   color: #ff8b60;
 }
 
-/* line 47, _/components/sass/_base.scss */
+/* line 49, _/components/sass/_base.scss */
 input[type="submit"] {
   border: none;
 }
 
-/* line 51, _/components/sass/_base.scss */
+/* line 53, _/components/sass/_base.scss */
 .aligncenter {
   display: block;
   margin: 0 auto;
 }
 
-/* line 56, _/components/sass/_base.scss */
+/* line 58, _/components/sass/_base.scss */
 .alignright {
   float: right;
 }
 
-/* line 58, _/components/sass/_base.scss */
+/* line 60, _/components/sass/_base.scss */
 .bx-caption {
   font-style: italic;
   font-size: 15px;
@@ -706,13 +727,65 @@ footer#footer #newsletter {
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
 }
 
+/* line 311, _/components/sass/_modules.scss */
+.team-member, .alum {
+  margin-bottom: 70px;
+}
 /* line 313, _/components/sass/_modules.scss */
+.team-member img, .alum img {
+  width: 55.94406%;
+  margin-bottom: 10px;
+}
+/* line 318, _/components/sass/_modules.scss */
+.team-member h4, .alum h4 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+/* line 323, _/components/sass/_modules.scss */
+.team-member h5, .alum h5 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 20px;
+}
+
+/* line 331, _/components/sass/_modules.scss */
+#talent-pool {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* line 337, _/components/sass/_modules.scss */
+#why-roundhex-full img {
+  width: 55.94406%;
+  margin-top: 55px;
+}
+/* line 341, _/components/sass/_modules.scss */
+#why-roundhex-full h4 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+/* line 346, _/components/sass/_modules.scss */
+#why-roundhex-full h5 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 20px;
+}
+/* line 351, _/components/sass/_modules.scss */
+#why-roundhex-full h5 ~ p {
+  font-size: 15px;
+}
+
+/* line 360, _/components/sass/_modules.scss */
 #newsletter p {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
 }
-/* line 318, _/components/sass/_modules.scss */
+/* line 365, _/components/sass/_modules.scss */
 #newsletter input#mc4wp_email {
   background-color: #faf9f9;
   font-size: 14px;
@@ -742,7 +815,7 @@ footer#footer #newsletter {
 #newsletter input#mc4wp_email::-webkit-input-placeholder {
   color: #cfcfcf;
 }
-/* line 331, _/components/sass/_modules.scss */
+/* line 378, _/components/sass/_modules.scss */
 #newsletter input#mc_submit {
   padding: 10px 15px;
   background-color: #8e8e8e;
@@ -752,13 +825,13 @@ footer#footer #newsletter {
   color: #e2e2e2;
   font-size: 14px;
 }
-/* line 337, _/components/sass/_modules.scss */
+/* line 384, _/components/sass/_modules.scss */
 #newsletter input#mc_submit.orange {
   background-color: #ff8b60;
   color: #ffffff;
 }
 
-/* line 344, _/components/sass/_modules.scss */
+/* line 391, _/components/sass/_modules.scss */
 #copyright {
   background-color: #ff8b60;
   color: #ffffff;
