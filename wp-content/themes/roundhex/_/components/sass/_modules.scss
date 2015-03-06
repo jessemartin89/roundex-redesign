@@ -185,6 +185,22 @@ header #contact-header{
 			width: 100%;
 			margin-bottom:15px;
 		} //img
+		a{
+			display:block;
+		}
+		span{
+			display:block
+		}
+		@include at-breakpoint($medium){
+			a, span{
+				display:inline;
+			}
+			a:after{
+					content: '|';
+					color: rgb(179,179,179);
+					padding: 0 20px;
+			} //a:after
+		} //medium
 	} //.featured-work
 } //#featured-work-container
 
@@ -195,6 +211,17 @@ header #contact-header{
 	img{
 		width:100%;
 		margin-bottom:30px;
+		&.wide-size{
+			display:none;
+		}
+		@include at-breakpoint($medium){
+			&.portrait-size{
+				display:none;
+			}
+			&.wide-size{
+				display:block;
+			}
+		} //medium
 	} //img
 	a:after{
 		content: '';
