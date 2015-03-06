@@ -15,6 +15,15 @@
 	<div id="wrapper" class="hfeed">
 <?php } ?>
 <header id="header" role="banner">
+	<div id="contact-header" class="layout">
+		<div id="close-contact"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/contact-exit.png"></div>
+		<div id="contact-email">
+			<a href="mailto:hello@roundhex.com">hello@roundhex.com</a>
+		</div>
+		<div id="contact-phone">
+			<span>+1-212-694-4667</span>
+		</div>
+	</div> <!-- contact-header -->
 <nav id="menu" role="navigation">
 	<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 </nav>

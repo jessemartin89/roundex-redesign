@@ -17,20 +17,28 @@ $large					: 75em;
 		width: 100%;
 	}
 }
-.branding{
+header#header{
 	background-image:url('images/mock-embossed_smaller_pattern.jpg');
 
-	img{
+	.branding img{
 		width:133px;
 		margin:0 auto;
 		display:block;
 		padding:20px 0;
 	} //img
+
+	#contact-header{
+		display:none;
+	}
 } //branding
 
 // Navigation --------------------------------------------
 header nav#menu{
 	text-align:center;
+	background-color: $mainBG;
+	padding-top:10px;
+	position:relative;
+	z-index:3;
 	li{
 		display:inline-block;
 		font-size:12px;
@@ -92,6 +100,12 @@ header nav#menu{
 		} //contact
 	} //li
 } //header nav#menu
+
+header #contact-header{
+	#contact-email{
+		float:left;
+	}
+}
 
 // Hero --------------------------------------------
 div.hero{

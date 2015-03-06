@@ -1,3 +1,51 @@
+// Contact Header --------------------------------------------
+header #contact-header{
+	overflow:hidden;
+	padding-bottom:10px;
+	#contact-email{
+		margin-left:21px;
+		a{
+			color: $fontColor;
+			&:before{
+				content: '';
+				width:13px;
+				height: 15px;
+				background-image: url('images/contact-email-icon.png');
+				@include background-size(contain);
+				position:absolute;
+				background-repeat: no-repeat;
+				margin-left:-17px;
+				margin-top:7px;
+			} //a:before
+		} //a
+	} // contact-email
+	#contact-phone{
+		float:right;
+		span{
+			&:before{
+				content: '';
+				width:13px;
+				height: 15px;
+				background-image: url('images/contact-phone-icon.png');
+				@include background-size(contain);
+				position:absolute;
+				background-repeat: no-repeat;
+				margin-left:-17px;
+				margin-top:7px;
+			}
+		}
+	} //contact-phone
+	#close-contact{
+		margin-bottom:10px;
+		overflow:hidden;
+		cursor: pointer;
+		img{
+			width:auto;
+			height:30px;
+			float:right;
+		}
+	}
+} //contact-header
 // Navigation --------------------------------------------
 /* Effect 4: bottom border enlarge */
 #menu a {

@@ -6,4 +6,14 @@ jQuery(document).ready(function($) {
     		$('#mc_submit').addClass('orange');
     	} //if email field has value
     }); // #mc4wp_email blur
+
+    $('li.contact a').click(function(e){
+    	e.preventDefault();
+    	$('#contact-header').slideDown();
+
+    }); //li a click
+
+    $('#close-contact img').click(function(){
+    	$('#contact-header').slideUp();
+    }) //close contact
 }); //jQuery(document).ready(function($) 

@@ -1,1 +1,1 @@
-jQuery(document).ready(function(a){a("input").bind("input propertychange",function(){a(this).val().length>0&&a("#mc_submit").addClass("orange")})});
+jQuery(document).ready(function(a){a("input").bind("input propertychange",function(){a(this).val().length>0&&a("#mc_submit").addClass("orange")}),a("li.contact a").click(function(b){b.preventDefault(),a("#contact-header").slideDown()}),a("#close-contact img").click(function(){a("#contact-header").slideUp()})});
