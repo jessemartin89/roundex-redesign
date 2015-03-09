@@ -207,7 +207,6 @@ header #contact-header{
 // Why Roundhex --------------------------------------------
 #why-roundhex{
 	text-align:center;
-	padding-bottom:70px;
 	img{
 		width:100%;
 		margin-bottom:30px;
@@ -233,6 +232,11 @@ header #contact-header{
 		padding-left:5px
 	} //a:After
 }//why roundhex
+
+// Portfolio Page --------------------------------------------
+#portfolio{
+	p{margin-bottom:0;}
+}
 
 // Project ------------------------------
 
@@ -448,6 +452,7 @@ header #contact-header{
 			color: rgb(207,207,207);
 		}
 		margin-bottom:15px;
+		max-width: 90%;
 	} //email input
 
 	input#mc_submit{

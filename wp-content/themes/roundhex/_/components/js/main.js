@@ -16,4 +16,12 @@ jQuery(document).ready(function($) {
     $('#close-contact img').click(function(){
     	$('#contact-header').slideUp();
     }) //close contact
+
+    $('.photo-container .bx-controls-direction').each(function(){
+        if($(this).children('a.disabled').length > 1){
+            // console.log($(this).closest());
+            $(this).css('display', 'none');
+        } // .disabled ~ .disabled
+    }) //each photo container
+    
 }); //jQuery(document).ready(function($) 

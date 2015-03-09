@@ -73,7 +73,7 @@ header nav#menu{
 			text-transform: uppercase;
 			padding-bottom:5px;
 		} //a
-		&.current-menu-item a{
+		&.current-menu-item a, &.current-page-ancestor a{
 			border-bottom:5px solid $rhOrange;
 		}
 		&.portfolio:before{
@@ -126,6 +126,10 @@ div.hero{
 	@include background-size(cover);
 	background-repeat:no-repeat;
 	margin: 0 auto;
+	@include at-breakpoint($medium){
+		min-height:225px;
+		@include background-size(100%);
+	}
 }
 
 .entry-content{
@@ -149,6 +153,12 @@ div.hero{
 // Projects --------------------------------------------
 .bx-caption {
 	@include span-columns(4,7);
+}
+
+.bx-viewport{
+	@include at-breakpoint($medium){
+		min-height:366px;
+	}
 }
 
 .bx-controls{
@@ -186,6 +196,10 @@ div.hero{
 			cursor: default;
 		} //bx-next.disabled
 	} //bx-next
+
+	.disabled ~ .disabled{
+		display:none;
+	}
 } //bx-controls
 
 #project-header{
