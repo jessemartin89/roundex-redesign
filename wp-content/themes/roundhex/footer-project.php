@@ -22,13 +22,16 @@
 
 			<?php } else { ?>
 				<div class="more-work">
-			<?php }
-			if(get_field('hero_image', $pageID)){ ?>
-				<img src="<?php the_field('hero_image', $pageID); ?>">
 			<?php } ?>
+				<?php echo get_the_post_thumbnail($pageID); ?>
 				<div class="more-work-details">
-					<a href="<?php echo get_permalink( $pageID); ?>"><?php echo get_the_title($pageID) ;?></a>
-					<?php if(get_field('work', $pageID)){ ?>
+					<?php if(get_the_ID() == $pageID){ ?>
+						<p class="title-nolink"><?php echo get_the_title($pageID) ;?></p>
+					<?php } else { ?>
+						<a href="<?php echo get_permalink( $pageID); ?>"><?php echo get_the_title($pageID) ;?></a>
+					<?php 
+					}
+					if(get_field('work', $pageID)){ ?>
 						<p><?php the_field('work', $pageID); ?></p>
 					<?php } ?>
 				</div>

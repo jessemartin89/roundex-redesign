@@ -125,11 +125,16 @@ div.hero{
 	@include background-size(cover);
 	background-repeat:no-repeat;
 	margin: 0 auto;
-	@include at-breakpoint($medium){
-		min-height:225px;
-		@include background-size(100%);
-	}
 }
+
+.page-template-page-project-php{
+	div.hero{
+		@include at-breakpoint($medium){
+			min-height:225px;
+			@include background-size(100%);
+		} //medium
+	} //div.hero
+} //page-template-page-project-php
 
 .entry-content{
 	padding: 30px 0 70px;

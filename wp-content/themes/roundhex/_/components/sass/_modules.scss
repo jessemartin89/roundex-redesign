@@ -283,30 +283,39 @@ header #contact-header{
 		color: $white;
 		width: 75%;
 		margin: 15px auto;
+		@include at-breakpoint($medium){
+			max-width:377px;
+		} //medium
 		p{
 			font-size: 25px;
 			line-height:34px;
 			font-style: italic;	
 			position:relative;
 			z-index: 2;
-		}
+		} //p
 		&:before, &:after{
 			content: '';
 			height:63px;
 			width: 79px;
 			position:absolute;
-		}
+		} //&:before, &:after
 		&:before{
 			background: url('images/left-quotes.png') no-repeat;
 			@include background-size(contain);	
 			margin-top:40px;
 			left:20px;
+			@include at-breakpoint($medium){
+				margin-top:30px;
+			} //medium
 		} //blockquote:before
 		&:after{
 			background: url('images/right-quotes.png') no-repeat;
 			@include background-size(contain);
 			margin-top: -104px;
 			right:26px;
+			@include at-breakpoint($medium){
+				margin-top:-90px;
+			} //medium
 		} //blockquote:after
 	} //blockquote
 } //testimonial
@@ -342,13 +351,10 @@ header #contact-header{
 
 .more-work{
 	margin-bottom:40px;
-	text-align:center;
 	.more-work-details{
 		text-align:center;
 	}
-	img{
-		width: 95%;
-	}
+	
 	a{
 		@include at-breakpoint($medium){
 			display:inline;
@@ -367,7 +373,20 @@ header #contact-header{
 	&.current-work{
 		background-color: rgba(0,0,0,.15);
 		position:relative;
-		padding: 10px 0 15px;
+		padding: 10px 10px 15px;
+		p{
+			margin-bottom:0;
+			&.title-nolink{
+				color: rgb(142,142,142);
+				@include at-breakpoint($medium){
+					&:after{
+						content: '|';
+						color: #b3b3b3;
+						padding: 0 20px;
+					} //p.title-nolink:after
+				} //medium
+			} //p.title-nolink
+		} //p
 		p#now-viewing{
 			color: $white;
 			font-style:italic;
@@ -378,6 +397,9 @@ header #contact-header{
 			position:absolute;
 			text-align: center;
 			width: 100%;
+			@include at-breakpoint($medium){
+				top: 31%;
+			}
 		} //p#now-viewing
 	} //.more-work.current-work
 } //.more-work
@@ -417,6 +439,9 @@ header #contact-header{
 	img{
 		width: columns(4,7);
 		margin-bottom:10px;
+		@include at-breakpoint($medium){
+			width: columns(2,7);	
+		}
 	} //img
 
 	h4{
@@ -441,6 +466,9 @@ header #contact-header{
 	img{
 		width: columns(4,7);
 		margin-top: 55px;
+		@include at-breakpoint($medium){
+			width: columns(2,7);	
+		} //medium
 	} //img
 	h4{
 		font-weight: $bold;
