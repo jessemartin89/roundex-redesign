@@ -26,10 +26,12 @@
 			if(get_field('hero_image', $pageID)){ ?>
 				<img src="<?php the_field('hero_image', $pageID); ?>">
 			<?php } ?>
-			<a href="<?php echo get_permalink( $pageID); ?>"><?php echo get_the_title($pageID) ;?></a>
-			<?php if(get_field('work', $pageID)){ ?>
-				<p><?php the_field('work', $pageID); ?></p>
-			<?php } ?>
+				<div class="more-work-details">
+					<a href="<?php echo get_permalink( $pageID); ?>"><?php echo get_the_title($pageID) ;?></a>
+					<?php if(get_field('work', $pageID)){ ?>
+						<p><?php the_field('work', $pageID); ?></p>
+					<?php } ?>
+				</div>
 			</div>
 		<?php }
 
