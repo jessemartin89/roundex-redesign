@@ -466,6 +466,17 @@ header #contact-header{
 			color: #ffffff;
 		}
 	} //subscribe button
+	#mc_signup_details{
+		@include at-breakpoint($medium){
+			@include span-columns(4, 7);
+		} //medium
+	} //mc_signup_details
+
+	#mc_signup_action{
+		@include at-breakpoint($medium){
+			@include span-columns(3 omega, 7);
+		} //medium
+		} //mc_signup_action
 } //newsletter
 
 #copyright{

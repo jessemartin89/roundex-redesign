@@ -21,7 +21,17 @@ jQuery(document).ready(function($) {
         if($(this).children('a.disabled').length > 1){
             // console.log($(this).closest());
             $(this).css('display', 'none');
+            $(this).closest('.bx-controls').removeClass('bx-has-controls-direction');
         } // .disabled ~ .disabled
-    }) //each photo container
+    }) //each bx controls
+
+    $('.bx-controls').each(function(){
+        if(!$(this).hasClass('bx-has-controls-direction')){
+            $(this).prev('.bx-viewport').find('.bx-caption').addClass('full-caption');
+        }
+
+    }); // each bx-caption
+
+
     
 }); //jQuery(document).ready(function($) 

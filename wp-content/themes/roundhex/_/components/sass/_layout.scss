@@ -26,7 +26,6 @@ header#header{
 		display:block;
 		padding:20px 0;
 		@include at-breakpoint($medium){
-			margin: 0 0 0 50px;
 			padding: 30px 0 10px;
 		}
 	} //img
@@ -153,7 +152,10 @@ div.hero{
 // Projects --------------------------------------------
 .bx-caption {
 	@include span-columns(4,7);
-}
+	&.full-caption{
+		@include span-columns(6, 7);
+	} //.bx-caption.full-caption
+} //.bx-caption
 
 .bx-viewport{
 	@include at-breakpoint($medium){
@@ -196,10 +198,6 @@ div.hero{
 			cursor: default;
 		} //bx-next.disabled
 	} //bx-next
-
-	.disabled ~ .disabled{
-		display:none;
-	}
 } //bx-controls
 
 #project-header{
@@ -215,6 +213,7 @@ footer#footer{
 	#newsletter{
 		background-image:url('images/mock-embossed_smaller_pattern.jpg');
 		padding: 30px 0;
+		overflow:hidden;
 	}
 }
 
