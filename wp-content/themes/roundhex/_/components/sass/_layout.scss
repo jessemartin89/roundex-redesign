@@ -9,12 +9,17 @@ $grid-padding   : $gutter-width;
 $small					: 20em 29em;
 $medium					: 35em;
 $large					: 48em;
+$desktop				: 64em;
 
 body{
 	@include at-breakpoint($large){
 		font-size:19px;
 		line-height:28px;
 	} //large
+	@include at-breakpoint($desktop){
+		font-size:22px;
+		line-height:31px;
+	}
 } //body
 
 
@@ -26,11 +31,20 @@ h2{
     } //large
 }
 
+h4{
+	@include at-breakpoint($desktop){
+		font-size: 24px;
+	} //desktop
+} //h4
+
 .layout{
 	width: columns(6,7);
 	margin:0 auto;
 	img{
 		width: 100%;
+	}
+	@include at-breakpoint($desktop){
+		width: columns(5,7);
 	}
 }
 header#header{
@@ -94,6 +108,9 @@ header nav#menu{
 		@include span-columns(4 omega, 7);
 		padding-top:70px;
 	} //large
+	@include at-breakpoint($desktop){
+		padding-right:40px;
+	} //desktop
 	li{
 		display:inline-block;
 		font-size:12px;
@@ -178,6 +195,9 @@ div.hero{
 	@include clearfix;
 	@include at-breakpoint($large){
 		min-height:225px;
+	}
+	@include at-breakpoint($desktop){
+		min-height:425px;
 	}
 }
 
@@ -289,6 +309,11 @@ footer#footer{
 		background-image:url('images/mock-embossed_smaller_pattern.jpg');
 		padding: 30px 0;
 		overflow:hidden;
-	}
-}
+		.layout{
+			@include at-breakpoint($desktop){
+				width: columns(6,7);
+			} //desktop
+		} //layout
+	} //newsletter
+} //footer
 

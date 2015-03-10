@@ -212,6 +212,9 @@ header #contact-header{
 					padding: 0 20px;
 			} //a:after
 		} //medium
+		@include at-breakpoint($desktop){
+			margin-bottom:80px;
+		} //desktop
 	} //.featured-work
 } //#featured-work-container
 
@@ -240,7 +243,13 @@ header #contact-header{
 		position:absolute;
 		width:6px;
 		height:18px;
-		padding-left:5px
+		padding-left:5px;
+		@include at-breakpoint($desktop){
+			background-size:9px;
+			width:9px;
+			height: 23px;
+			padding-left:15px;
+		}
 	} //a:After
 }//why roundhex
 
@@ -572,6 +581,10 @@ header #contact-header{
 		font-size: 14px;
 		line-height: 20px;
 		margin-bottom:10px;
+		@include at-breakpoint($desktop){
+			font-size:16px;
+			line-height:24px;
+		}
 	} //p
 	input#mc4wp_email{
 		background-color: $mainBG;
@@ -585,6 +598,9 @@ header #contact-header{
 		}
 		margin-bottom:15px;
 		max-width: 90%;
+		@include at-breakpoint($desktop){
+			font-size:16px;
+		} //desktop
 	} //email input
 
 	input#mc_submit{
@@ -605,6 +621,7 @@ header #contact-header{
 		@include at-breakpoint($large){
 			@include span-columns(3,7);
 		}
+
 	} //mc_signup_details
 
 	#mc_signup_action{
@@ -624,4 +641,7 @@ header #contact-header{
 	color: #ffffff;
 	text-align:center;
 	padding:15px 0;
+	@include at-breakpoint($desktop){
+		font-size:16px;
+	}
 } //copyright
