@@ -18,6 +18,10 @@ header #contact-header{
 				margin-top:7px;
 			} //a:before
 		} //a
+		@include at-breakpoint($medium){
+			margin-top:15px;
+			margin-left: 65px;
+		}
 	} // contact-email
 	#contact-phone{
 		float:right;
@@ -32,8 +36,11 @@ header #contact-header{
 				background-repeat: no-repeat;
 				margin-left:-17px;
 				margin-top:7px;
-			}
-		}
+			} //span:before
+		} //span
+		@include at-breakpoint($medium){
+			margin: 15px 20px 0 0;
+		} //medium
 	} //contact-phone
 	#close-contact{
 		margin-bottom:10px;
@@ -43,8 +50,11 @@ header #contact-header{
 			width:auto;
 			height:30px;
 			float:right;
-		}
-	}
+		} //img
+		@include at-breakpoint($medium){
+			float:right;
+		} //medium
+	} //close-contact
 } //contact-header
 // Navigation --------------------------------------------
 /* Effect 4: bottom border enlarge */
