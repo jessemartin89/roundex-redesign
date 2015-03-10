@@ -12,21 +12,17 @@ $large					: 48em;
 
 body{
 	@include at-breakpoint($large){
-		font-size:20px;
+		font-size:19px;
+		line-height:28px;
 	} //large
 } //body
 
-p{
-	@include at-breakpoint($large){
-		width: columns(6,7);
-		margin:0 auto;
-	}
-}
 
 h2{
 	@include at-breakpoint($large){
     	width: columns(6,7);
     	margin: 0 auto;
+    	margin-bottom:35px;
     } //large
 }
 
@@ -42,10 +38,23 @@ header#header{
 	overflow:hidden;
 
 	.branding{
-		@include at-breakpoint ($large){
-			margin-left:20px;
-			float:left;
-		}
+		@include at-breakpoint ($medium){
+			@include span-columns(2, 7);
+		} //large
+		@include at-breakpoint($large){
+			padding-left:30px;
+		} //large
+		&.wide-size{
+			display:none;
+			@include at-breakpoint($medium){
+				display:block;
+			} //medium
+		} //wide-size
+		&.portrait{
+			@include at-breakpoint($medium){
+				display:none;
+			} //medium
+		} //portrait
 		img{
 			width:133px;
 			margin:0 auto;
@@ -79,11 +88,10 @@ header nav#menu{
 		@include span-columns(5 omega,7);
 		padding-top:48px;
 		text-align:right;
-		margin-right:20px;
+		padding-right:20px;
 	} //medium
 	@include at-breakpoint($large){
 		@include span-columns(4 omega, 7);
-		margin-right:20px;
 		padding-top:70px;
 	} //large
 	li{
@@ -168,6 +176,9 @@ div.hero{
 	background-repeat:no-repeat;
 	margin: 0 auto;
 	@include clearfix;
+	@include at-breakpoint($large){
+		min-height:225px;
+	}
 }
 
 .page-template-page-project-php{
@@ -187,7 +198,13 @@ div.hero{
 .home-blurb{
 	text-align:center;
 	padding-bottom:50px;
-}
+	p{
+		@include at-breakpoint($large){
+			width: columns(6,7);
+			margin:0 auto 15px;
+		} //large
+	} //p
+} //home-blurb
 
 // Portfolio Page --------------------------------------------
 .feature{
@@ -195,6 +212,13 @@ div.hero{
 	img{
 		margin: 10px 0 15px;
 	} //img
+	@include at-breakpoint($large){
+		width: columns(5,7);
+		p:last-of-type{
+			width: 87%;
+			margin: 0 auto;
+		}
+	} //large
 } //.portfolio
 
 // Projects --------------------------------------------
@@ -202,6 +226,9 @@ div.hero{
 	@include span-columns(4,7);
 	&.full-caption{
 		@include span-columns(6, 7);
+		@include at-breakpoint($large){
+			width: auto;
+		}
 	} //.bx-caption.full-caption
 } //.bx-caption
 

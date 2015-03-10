@@ -49,6 +49,9 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 <div id="project-story">
 	<?php if( have_rows('identity_design_story') ): ?>
 	<h2><span>Identity Design</span></h2>
+	<?php if(get_field('identity_design_image')){ ?>
+		<img class="layout wide-size" src="<?php the_field('identity_design_image'); ?>">
+	<?php } ?>
 		<?php 
 		$j =0;
 		while( have_rows('identity_design_story') ): the_row(); ?>
@@ -82,6 +85,9 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 	<?php endif; ?>
 	<?php if(have_rows('website_design_story')): ?>
 		<h2><span>Website Design</span></h2>
+		<?php if(get_field('website_design_image')){ ?>
+			<img class="layout wide-size" src="<?php the_field('website_design_image'); ?>">
+		<?php } ?>
 		<?php 
 		$w = 0;
 		while( have_rows('website_design_story') ): the_row(); ?>

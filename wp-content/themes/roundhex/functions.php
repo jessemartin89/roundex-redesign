@@ -102,3 +102,5 @@ function pa($array, $title = 'Print Out', $die = false, $backtrace_full = false,
         die();
     }
 }
+
+remove_filter( 'the_content', 'wpautop' );
