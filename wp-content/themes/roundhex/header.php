@@ -24,14 +24,15 @@
 			<span>+1-212-694-4667</span>
 		</div>
 	</div> <!-- contact-header -->
-<nav id="menu" role="navigation">
-	<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-</nav>
-<div class="branding">
+	<div class="branding">
 	<a href="<?php get_home_url(); ?>">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rh-logo-scribbled.png" alt="Round Hex">
 	</a>
 </div><!-- branding -->
+<nav id="menu" role="navigation">
+	<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+</nav>
+
 <?php 
 //add if mobile
 if(get_field('hero_image')){ ?>
