@@ -157,19 +157,22 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 </section>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.js"></script>
 <script>jQuery(document).ready(function(){
+	jQuery('body').append('<div class="lightbox-overlay"></div>');
 	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
 	var identitySliderCount = jQuery('.bxslider.identity-slider').length;
 	var webSliderCount = jQuery('.bxslider.website-slider').length;
 	// var sliderIndex = sliderCount - 1;
 	var k = 0;
+	var identity_bx_array = [];
 	while(k < identitySliderCount){
-		jQuery('.bxslider.identity-slider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
+		identity_bx_array[k] = jQuery('.bxslider.identity-slider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
 		k++;
 	}
 
 	var ws = 0;
+	var web_bx_array = [];
 	while(ws < webSliderCount){
-		jQuery('.bxslider.website-slider#slider' + ws).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
+		web_bx_array[ws] = jQuery('.bxslider.website-slider#slider' + ws).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
 		ws++;
 	}
 
@@ -177,10 +180,43 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 	jQuery('.zoom-slide').click(function(e){
         e.preventDefault();
         //get this slideshows current slide
-        var getSlide = jQuery(this).parent('.bx-controls').siblings('.bx-viewport').find('.bxslider');
-        var currentSlider = getSlide.bxSlider();
-        var currentSlide = currentSlider.getCurrentSlideElement();
-        console.log(currentSlide);
+        var getSlide = jQuery(this).parents('.bx-controls').siblings('.bx-viewport').find('.bxslider');
+        var currentSlideIndex = parseInt(getSlide.attr('id').replace('slider' , ''));
+        if(getSlide.hasClass('identity-slider')){
+        	var currentSlide = identity_bx_array[currentSlideIndex].getCurrentSlideElement();
+        } else if(getSlide.hasClass('website-slider')){
+        	var currentSlide = web_bx_array[currentSlideIndex].getCurrentSlideElement();
+        }
+        
+        // get slide image
+        currentImgSrc = currentSlide.find('img').attr('src');
+        console.log(currentImgSrc);
+        //add overlay
+        jQuery('.lightbox-overlay').addClass('visible');
+        jQuery('body').append('<div class="lightbox"><a id="close-lightbox" href="">close</a><img src="' + currentImgSrc + '"></div>');
+        centerContent();
+
+        jQuery('#close-lightbox').click(function(e) {
+        	e.preventDefault();
+			if(jQuery('.lightbox-overlay.visible').length >0){
+				jQuery('.lightbox-overlay').toggleClass('visible');
+				jQuery('.lightbox').toggleClass('hide');
+			}	
+		});	
+
+        //add image to center of screen at 95% width
+        //add close button
+        function centerContent(){
+			var overlayImageWidth = jQuery('.lightbox img').width();
+			var overlayImageHeight = jQuery('.lightbox img').height();
+			var windowWidth = jQuery(window).width();
+			var windowHeight = jQuery(window).height();
+			var overlayTop = (windowHeight/2) - (overlayImageHeight/2);
+			var overlayLeft = (windowWidth/2) - (overlayImageWidth/2);
+
+			jQuery('.lightbox').css({'left': overlayLeft, 'top': overlayTop});
+			
+		}
     }) ; //zoom-slide click  
   
 });</script>

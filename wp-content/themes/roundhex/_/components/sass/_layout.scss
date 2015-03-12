@@ -228,6 +228,9 @@ div.hero{
 			min-height:225px;
 			@include background-size(100%);
 		} //medium
+		@include at-breakpoint($desktop){
+			min-height:425px;
+		}
 	} //div.hero
 } //page-template-page-project-php
 
