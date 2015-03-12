@@ -1,6 +1,7 @@
 <?php
 /* Template Name: Project Page */
 get_header(); ?>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/picturefill.min.js"></script>
 <section id="content" role="main">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -35,14 +36,14 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 <nav id="project-pagination">
     <?php if (!empty($prevID)) { ?>
     <div class="prev-arrow">
-    <a href="<?php  echo get_permalink($prevID); ?>"
-      title="<?php  echo get_the_title($prevID); ?>" class="previous-page"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/prev-project-mobile.png"></a>
+	    <a href="<?php  echo get_permalink($prevID); ?>"
+	      title="<?php  echo get_the_title($prevID); ?>" class="previous-page"></a>
     </div>
     <?php }
     if (!empty($nextID)) { ?>
     <div class="next-arrow">
-    <a href="<?php echo get_permalink($nextID); ?>" 
-     title="<?php  echo get_the_title($nextID); ?>" class="next-page"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/next-project-mobile.png"></a>
+	    <a href="<?php echo get_permalink($nextID); ?>" 
+	     title="<?php  echo get_the_title($nextID); ?>" class="next-page"></a>
     </div>
     <?php } ?>
 </nav><!-- #pagination --> 
@@ -55,7 +56,11 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 		<?php 
 		$j =0;
 		while( have_rows('identity_design_story') ): the_row(); ?>
-		<div class="project-step layout">
+		<?php if ($j % 2 == 0){ ?>
+			<div class="project-step even layout">
+		<?php } else { ?>
+			<div class="project-step odd layout">
+		<?php } ?>
 			<div class="story-text">
 				<?php the_sub_field('identity_design_step'); ?>
 			</div>
@@ -91,7 +96,11 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 		<?php 
 		$w = 0;
 		while( have_rows('website_design_story') ): the_row(); ?>
-		<div class="web-step layout">
+		<?php if ($w % 2 == 0){ ?>
+			<div class="web-step even layout">
+		<?php } else { ?>
+			<div class="web-step odd layout">
+		<?php } ?>
 			<div class="story-text">
 				<?php the_sub_field('website_design_step'); ?>
 			</div>
@@ -146,7 +155,7 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 <?php endwhile; endif; ?>
 <?php get_footer('project'); ?>
 </section>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.min.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.js"></script>
 <script>jQuery(document).ready(function(){
 	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
 	var identitySliderCount = jQuery('.bxslider.identity-slider').length;
@@ -164,6 +173,15 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 		ws++;
 	}
 
+	//slideshow zoom
+	jQuery('.zoom-slide').click(function(e){
+        e.preventDefault();
+        //get this slideshows current slide
+        var getSlide = jQuery(this).parent('.bx-controls').siblings('.bx-viewport').find('.bxslider');
+        var currentSlider = getSlide.bxSlider();
+        var currentSlide = currentSlider.getCurrentSlideElement();
+        console.log(currentSlide);
+    }) ; //zoom-slide click  
   
 });</script>
 <?php get_footer(); ?>

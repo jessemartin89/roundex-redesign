@@ -31,7 +31,4 @@ jQuery(document).ready(function($) {
         }
 
     }); // each bx-caption
-
-
-    
 }); //jQuery(document).ready(function($) 

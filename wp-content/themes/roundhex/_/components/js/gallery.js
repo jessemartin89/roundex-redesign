@@ -12,5 +12,4 @@ jQuery(document).ready(function($) {
 			$(this).find('.gallery-controls .gskip_right img').addClass('has-next');
 		}//check for next
 	})// each photo-container li
-
 }); //document ready

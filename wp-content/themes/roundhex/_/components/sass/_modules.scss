@@ -274,6 +274,7 @@ header #contact-header{
 }
 
 #project-story{
+	overflow:hidden;
 	.wide-size{
 		display:none;
 		@include at-breakpoint($large){
@@ -281,11 +282,17 @@ header #contact-header{
 			margin-bottom: 40px;
 		} //large
 	} //wide-size
+	h2{
+		@include clearfix;
+	}
 } //project-story
 .story-gallery{
 	margin-bottom:60px;
 	overflow:hidden;
-}
+	@include at-breakpoint($desktop){
+		margin-bottom:0;
+	} //desktop
+} //story-gallery
 .story-text{
 	margin-bottom:20px;
 	p{
@@ -298,7 +305,38 @@ header #contact-header{
 		font-size: 17px;
 		line-height:25px;
 	} //h4
+} //story-text
+.project-step.even, .web-step.even{
+	overflow:hidden;
+	.story-text{
+		@include at-breakpoint($desktop){
+			@include span-columns(4,7);
+		} //desktop
+	} //story-text
+	.story-gallery{
+		@include at-breakpoint($desktop){
+			@include span-columns(3 omega, 7);
+		} //desktop
+	} //story-gallery
+} //project-step-even
+.project-step.odd, .web-step.odd{
+	overflow:hidden;
+	.story-text{
+		@include at-breakpoint($desktop){
+			@include span-columns(4 omega,7);
+		} //desktop
+	} //story-text
+	.story-gallery{
+		@include at-breakpoint($desktop){
+			@include span-columns(3, 7);
+		} //desktop
+	} //story-gallery
+} //project-step-even
+
+.project-step, .web-step{
+	margin-bottom:20px;
 }
+
 #intro-blurb{
 	padding-bottom:70px;
 	@include at-breakpoint($medium){
@@ -454,6 +492,9 @@ header #contact-header{
 				top: 31%;
 			}
 		} //p#now-viewing
+		.overlay{
+			background-color:rgba(0,0,0,.3);
+		}
 	} //.more-work.current-work
 } //.more-work
 
@@ -463,12 +504,26 @@ header #contact-header{
 		a{
 			left: 100%;
 			margin-left: -38px;
+			background: url('images/next-project-mobile-shadow.png') no-repeat;
+			@include background-size(cover);
+			@include at-breakpoint($large){
+				background-image: url('images/next-project-wide-shadow.png');
+				margin-left: -105px;
+			} //large
 		} // a
 	} //next arrow
 
 	.prev-arrow{
 		a{
-			left:-45px;
+			left:-40px;
+			background: url('images/prev-project-mobile-shadow.png') no-repeat;
+			@include background-size(cover);
+			width:75px;
+			@include at-breakpoint($large){
+				background-image: url('images/prev-project-wide-shadow.png');
+				width:120px;
+				left:-15px;
+			} //large
 		} 
 	} //prev arrow
 	a{
@@ -477,12 +532,10 @@ header #contact-header{
 		position: fixed;
 		z-index: 9;
 		top: 50%;
-		img{
-				height:38px;
-				-webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,.3));
-  				filter: drop-shadow(2px 2px 2px rgba(0,0,0,.3));
-			}
-		
+		@include at-breakpoint($large){
+			height: 50px;
+			width:120px;
+		}		
 	} //a
 } //project-pagination
 
