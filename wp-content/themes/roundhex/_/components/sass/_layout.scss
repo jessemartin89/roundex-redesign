@@ -200,8 +200,12 @@ header nav#menu{
 header #contact-header{
 	#contact-email{
 		float:left;
-	}
-}
+		@include at-breakpoint($desktop){
+			float:right;
+			clear:right;
+		} //desktop
+	} //contact-email
+} //contact-header
 
 // Hero --------------------------------------------
 div.hero{

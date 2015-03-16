@@ -26,10 +26,12 @@ $pages = array();
 foreach ($pagelist as $page) {
    $pages[] += $page->ID;
 }
-
+// pa($pages);
 $current = array_search(get_the_ID(), $pages);
 $prevID = ( isset($pages[$current-1]) ) ? $pages[$current-1] : '';
 $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
+$firstID = $pages[0];
+$lastID = end($pages);
 
 ?>
  
@@ -39,23 +41,34 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 	    <a href="<?php  echo get_permalink($prevID); ?>"
 	      title="<?php  echo get_the_title($prevID); ?>" class="previous-page"></a>
     </div>
+    <?php } else { ?>
+    	<div class="prev-arrow">
+		    <a href="<?php  echo get_permalink($lastID); ?>"
+		      title="<?php  echo get_the_title($lastID); ?>" class="previous-page"></a>
+	    </div>
     <?php }
     if (!empty($nextID)) { ?>
     <div class="next-arrow">
 	    <a href="<?php echo get_permalink($nextID); ?>" 
 	     title="<?php  echo get_the_title($nextID); ?>" class="next-page"></a>
     </div>
+    <?php } else { ?>
+    	<div class="next-arrow">
+		    <a href="<?php echo get_permalink($firstID); ?>" 
+		     title="<?php  echo get_the_title($firstID); ?>" class="next-page"></a>
+	    </div>
     <?php } ?>
 </nav><!-- #pagination --> 
 <div id="project-story">
 	<?php if( have_rows('project_stories') ): 
+	$j =0;
 			while( have_rows('project_stories') ): the_row(); ?>
 				<h2><span><?php the_sub_field('project_type'); ?></span></h2>
 			<?php if(get_sub_field('story_image')){ ?>
 				<img class="layout wide-size" src="<?php the_sub_field('story_image'); ?>">
 			<?php } 
 				if(have_rows('project_story')){
-					$j =0;
+					
 					while(have_rows('project_story')): the_row();
 					if ($j % 2 == 0){ ?>
 						<div class="project-step even step<?php echo $j;?> layout">
@@ -78,9 +91,9 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 								endif; //step_gallery rows
 								?>
 							<div class="photo-container">
-								<ul class="bxslider identity-slider" id="<?php echo 'slider' . $j; ?>">
+								<ul class="bxslider" id="<?php echo 'slider' . $j; ?>">
 								<?php for($i=0; $i < count($photoArray); $i++){ ?>
-									<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></li>
+									<li><a href="<?php echo $photoArray[$i][1];?>" data-lightbox="gallery<?php echo $j;?>" data-title="<?php echo $photoArray[$i][0];?>"><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></a></li>
 								<?php } ?> <!-- for -->
 								</ul>
 							</div> <!-- photo-container -->
@@ -117,24 +130,17 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 <?php get_footer('project'); ?>
 </section>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox.js"></script>
 <script>jQuery(document).ready(function(){
 	jQuery('body').append('<div class="lightbox-overlay"></div>');
 	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
-	var identitySliderCount = jQuery('.bxslider.identity-slider').length;
-	var webSliderCount = jQuery('.bxslider.website-slider').length;
+	var sliderCount = jQuery('.bxslider').length;
 	// var sliderIndex = sliderCount - 1;
 	var k = 0;
-	var identity_bx_array = [];
-	while(k < identitySliderCount){
-		identity_bx_array[k] = jQuery('.bxslider.identity-slider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
+	var project_bx_array = [];
+	while(k < sliderCount){
+		project_bx_array[k] = jQuery('.bxslider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
 		k++;
-	}
-
-	var ws = 0;
-	var web_bx_array = [];
-	while(ws < webSliderCount){
-		web_bx_array[ws] = jQuery('.bxslider.website-slider#slider' + ws).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
-		ws++;
 	}
 
 	//slideshow zoom
@@ -142,19 +148,19 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
         e.preventDefault();
         //get this slideshows current slide
         var getSlide = jQuery(this).parents('.bx-controls').siblings('.bx-viewport').find('.bxslider');
+        // console.log(getSlide);
         var currentSlideIndex = parseInt(getSlide.attr('id').replace('slider' , ''));
-        if(getSlide.hasClass('identity-slider')){
-        	var currentSlide = identity_bx_array[currentSlideIndex].getCurrentSlideElement();
-        } else if(getSlide.hasClass('website-slider')){
-        	var currentSlide = web_bx_array[currentSlideIndex].getCurrentSlideElement();
-        }
-        
+        // console.log(currentSlideIndex);
+        // console.log(project_bx_array[currentSlideIndex]);
+        var currentSlide = project_bx_array[currentSlideIndex].getCurrentSlideElement();
+        jQuery( currentSlide ).trigger( "click" );
+
         // get slide image
-        currentImgSrc = currentSlide.find('img').attr('src');
-        console.log(currentImgSrc);
+        // currentImgSrc = currentSlide.find('img').attr('src');
+        // console.log(currentImgSrc);
         //add overlay
         jQuery('.lightbox-overlay').addClass('visible');
-        jQuery('body').append('<div class="lightbox"><a id="close-lightbox" href="">close</a><img src="' + currentImgSrc + '"></div>');
+        jQuery('body').append('<div class="lightbox"><a id="close-lightbox" href="">close</a>' + project_bx_array[currentSlideIndex] + '</div>');
         centerContent();
 
         jQuery('#close-lightbox').click(function(e) {

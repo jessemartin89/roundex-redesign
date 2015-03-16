@@ -2,6 +2,12 @@
 header #contact-header{
 	overflow:hidden;
 	padding-bottom:10px;
+	@include at-breakpoint($desktop){
+		&.layout{
+			width: 90%;
+			font-size:30px;
+		}
+	}
 	#contact-email{
 		margin-left:21px;
 		a{
@@ -16,16 +22,26 @@ header #contact-header{
 				background-repeat: no-repeat;
 				margin-left:-17px;
 				margin-top:7px;
+				@include at-breakpoint($desktop){
+					width:25px;
+					height:25px;
+					margin-left:-32px;
+					margin-top:5px;
+				} //desktop
 			} //a:before
 		} //a
 		@include at-breakpoint($medium){
 			margin-top:15px;
 			margin-left: 65px;
 		} //medium
+		@include at-breakpoint($desktop){
+			margin-top:0;
+		} //desktop
 	} // contact-email
 	
 	#contact-phone{
 		float:right;
+		color:$fontColor;
 		span{
 			&:before{
 				content: '';
@@ -37,11 +53,21 @@ header #contact-header{
 				background-repeat: no-repeat;
 				margin-left:-17px;
 				margin-top:7px;
+				@include at-breakpoint($desktop){
+					width:25px;
+					height:25px;
+					margin-left:-32px;
+					margin-top:5px;
+				} //desktop
 			} //span:before
 		} //span
 		@include at-breakpoint($medium){
 			margin: 15px 20px 0 0;
 		} //medium
+		@include at-breakpoint($desktop){
+			clear:right;
+			margin-right:0px;
+		} //desktop
 	} //contact-phone
 	#close-contact{
 		margin-bottom:10px;
@@ -276,10 +302,10 @@ header #contact-header{
 .lightbox{
 	position:fixed;
 	z-index:999;
-	padding:10px;
-	background-color: $mainBG;
+	color:$disabledButton;
+	width: columns(6,7);
 	img{
-		width:80%;
+		width:100%;
 	}
 	&.hide{
 		display:none;
@@ -337,10 +363,18 @@ header #contact-header{
 			font-size: 15px;
 			line-height:25px;
 		} //large
+		@include at-breakpoint($desktop){
+			font-size:19px;
+			line-height:32px;
+		} //desktop
 	} //p
 	h4{
 		font-size: 17px;
 		line-height:25px;
+		@include at-breakpoint($desktop){
+			font-size:24px;
+			line-height:30px;
+		}
 	} //h4
 } //story-text
 .project-step.even, .web-step.even{
@@ -376,9 +410,12 @@ header #contact-header{
 
 .the-shanghai-quartet{
 	.project-step.step4{
+		@include at-breakpoint($desktop){
+			margin-top:-315px;
+		}
 		.story-text{
 			@include at-breakpoint($desktop){
-				@include span-columns(4 omega,7);
+				display:none;
 			} //desktop
 		} //story-text
 
@@ -596,10 +633,13 @@ header #contact-header{
 .team-member, .alum{
 	margin-bottom:70px;
 	overflow:hidden;
-	div{
+	&>div{
 		@include at-breakpoint($large){
 			@include span-columns(2,7);
 		} //large
+		div{
+			clear:both;
+		} //div wrapping headers
 	} //div
 	img{
 		width: columns(4,7);
@@ -630,6 +670,10 @@ header #contact-header{
 			line-height: 25px;
 			padding-left:10px;
 		} //large
+		@include at-breakpoint($desktop){
+			font-size:19px;
+			line-height:32px;
+		} //desktop
 	} //p
 } //team-member
 
@@ -676,8 +720,12 @@ header #contact-header{
 		@include at-breakpoint($large){
 			@include span-columns(5 omega, 7);
 			padding-left:10px;
-		}
-	}
+		} //large
+		@include at-breakpoint($desktop){
+			font-size:19px;
+			line-height:32px;
+		} //desktop
+	} //.layout div ~ p
 } //why-roundhex-full
 
 

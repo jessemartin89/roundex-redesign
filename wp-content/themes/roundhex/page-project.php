@@ -182,6 +182,7 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
 	jQuery('.zoom-slide').click(function(e){
         e.preventDefault();
         //get this slideshows current slide
+        //change for just one type of slider, no longer 2. get current slide, add popup div with new slideshow (duplicate of original) starting with current slide
         var getSlide = jQuery(this).parents('.bx-controls').siblings('.bx-viewport').find('.bxslider');
         var currentSlideIndex = parseInt(getSlide.attr('id').replace('slider' , ''));
         if(getSlide.hasClass('identity-slider')){
