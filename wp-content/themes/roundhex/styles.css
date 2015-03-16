@@ -536,44 +536,52 @@ div.hero {
     width: auto;
   }
 }
+@media (min-width: 64em) {
+  /* line 275, _/components/sass/_layout.scss */
+  .bx-caption.full-caption {
+    width: 85.31469%;
+    float: left;
+    margin-right: 2.7972%;
+  }
+}
 
 @media (min-width: 35em) {
-  /* line 283, _/components/sass/_layout.scss */
+  /* line 286, _/components/sass/_layout.scss */
   .bx-viewport {
     min-height: 366px;
   }
 }
 @media (min-width: 64em) {
-  /* line 283, _/components/sass/_layout.scss */
+  /* line 286, _/components/sass/_layout.scss */
   .bx-viewport {
     min-height: 250px;
     margin-bottom: 20px;
   }
 }
-/* line 291, _/components/sass/_layout.scss */
+/* line 294, _/components/sass/_layout.scss */
 .bx-viewport img {
   max-height: 334px;
 }
 @media (min-width: 35em) {
-  /* line 291, _/components/sass/_layout.scss */
+  /* line 294, _/components/sass/_layout.scss */
   .bx-viewport img {
     max-height: 510px;
   }
 }
 @media (min-width: 48em) {
-  /* line 291, _/components/sass/_layout.scss */
+  /* line 294, _/components/sass/_layout.scss */
   .bx-viewport img {
     max-height: 740px;
   }
 }
 @media (min-width: 64em) {
-  /* line 291, _/components/sass/_layout.scss */
+  /* line 294, _/components/sass/_layout.scss */
   .bx-viewport img {
     max-height: 208px;
   }
 }
 
-/* line 305, _/components/sass/_layout.scss */
+/* line 308, _/components/sass/_layout.scss */
 .bx-controls {
   width: 41.25874%;
   float: right;
@@ -588,17 +596,30 @@ div.hero {
   border-left: 1px solid #cfcfcf;
 }
 @media (min-width: 64em) {
-  /* line 305, _/components/sass/_layout.scss */
+  /* line 308, _/components/sass/_layout.scss */
   .bx-controls {
     margin-top: -75px;
   }
 }
-/* line 316, _/components/sass/_layout.scss */
+@media (min-width: 64em) {
+  /* line 319, _/components/sass/_layout.scss */
+  .bx-controls.disabled-directions {
+    width: 11.88811%;
+    float: right;
+    margin-right: 0;
+    border: none;
+  }
+}
+/* line 324, _/components/sass/_layout.scss */
+.bx-controls.disabled-directions .disabled {
+  display: none;
+}
+/* line 326, _/components/sass/_layout.scss */
 .bx-controls .zoom-slide {
   display: none;
 }
 @media (min-width: 64em) {
-  /* line 316, _/components/sass/_layout.scss */
+  /* line 326, _/components/sass/_layout.scss */
   .bx-controls .zoom-slide {
     display: inline-block;
     background: url("images/zoom-icon.png") no-repeat;
@@ -610,13 +631,13 @@ div.hero {
     background-size: contain;
   }
 }
-/* line 327, _/components/sass/_layout.scss */
+/* line 337, _/components/sass/_layout.scss */
 .bx-controls .bx-controls-direction a {
   display: inline-block;
   height: 20px;
   width: 20px;
 }
-/* line 333, _/components/sass/_layout.scss */
+/* line 343, _/components/sass/_layout.scss */
 .bx-controls .bx-prev {
   background-image: url("images/left-arrow-med-orange.png");
   -moz-background-size: contain;
@@ -625,12 +646,12 @@ div.hero {
   background-size: contain;
   background-repeat: no-repeat;
 }
-/* line 337, _/components/sass/_layout.scss */
+/* line 347, _/components/sass/_layout.scss */
 .bx-controls .bx-prev.disabled {
   background-image: url("images/left-arrow-med-grey.png");
   cursor: default;
 }
-/* line 343, _/components/sass/_layout.scss */
+/* line 353, _/components/sass/_layout.scss */
 .bx-controls .bx-next {
   background-image: url("images/right-arrow-med-orange.png");
   -moz-background-size: contain;
@@ -640,23 +661,23 @@ div.hero {
   background-repeat: no-repeat;
   margin-left: 50px;
 }
-/* line 348, _/components/sass/_layout.scss */
+/* line 358, _/components/sass/_layout.scss */
 .bx-controls .bx-next.disabled {
   background-image: url("images/right-arrow-med-grey.png");
   cursor: default;
 }
 @media (min-width: 64em) {
-  /* line 343, _/components/sass/_layout.scss */
+  /* line 353, _/components/sass/_layout.scss */
   .bx-controls .bx-next {
     margin: 0;
   }
 }
-/* line 356, _/components/sass/_layout.scss */
+/* line 366, _/components/sass/_layout.scss */
 .bx-controls .zoom-slide {
   margin: 0 20px 0 15px;
 }
 
-/* line 361, _/components/sass/_layout.scss */
+/* line 371, _/components/sass/_layout.scss */
 #project-header {
   position: absolute;
   bottom: 0;
@@ -664,19 +685,19 @@ div.hero {
   color: #f1f1f1;
 }
 
-/* line 369, _/components/sass/_layout.scss */
+/* line 379, _/components/sass/_layout.scss */
 footer#footer {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 371, _/components/sass/_layout.scss */
+/* line 381, _/components/sass/_layout.scss */
 footer#footer #newsletter {
   background-image: url("images/mock-embossed_smaller_pattern.jpg");
   padding: 30px 0;
   overflow: hidden;
 }
 @media (min-width: 64em) {
-  /* line 375, _/components/sass/_layout.scss */
+  /* line 385, _/components/sass/_layout.scss */
   footer#footer #newsletter .layout {
     width: 85.31469%;
   }

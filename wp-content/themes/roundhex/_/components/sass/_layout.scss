@@ -277,6 +277,9 @@ div.hero{
 		@include at-breakpoint($large){
 			width: auto;
 		}
+		@include at-breakpoint($desktop){
+			@include span-columns(6, 7);
+		}
 	} //.bx-caption.full-caption
 } //.bx-caption
 
@@ -313,6 +316,13 @@ div.hero{
 	@include at-breakpoint($desktop){
 		margin-top:-75px;
 	}
+	&.disabled-directions{
+		@include at-breakpoint($desktop){
+			@include span-columns(1 omega, 7);
+			border:none;
+		}
+		.disabled{display:none}
+	} //&.disabled-directions
 	.zoom-slide{
 		display:none;
 		@include at-breakpoint($desktop){

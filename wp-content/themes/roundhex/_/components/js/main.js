@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
     $('.photo-container .bx-controls-direction').each(function(){
         if($(this).children('a.disabled').length > 1){
             // console.log($(this).closest());
-            $(this).css('display', 'none');
+            $(this).closest('.bx-controls').addClass('disabled-directions');
             $(this).closest('.bx-controls').removeClass('bx-has-controls-direction');
         } // .disabled ~ .disabled
     }) //each bx controls
