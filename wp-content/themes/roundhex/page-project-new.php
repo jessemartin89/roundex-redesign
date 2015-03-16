@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Project Page */
+/* Template Name: New Project Page */
 get_header(); ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/picturefill.min.js"></script>
 <section id="content" role="main">
@@ -48,92 +48,51 @@ $nextID = ( isset($pages[$current+1]) ) ? $pages[$current+1] : '';
     <?php } ?>
 </nav><!-- #pagination --> 
 <div id="project-story">
-	<?php if( have_rows('identity_design_story') ): ?>
-	<h2><span>Identity Design</span></h2>
-	<?php if(get_field('identity_design_image')){ ?>
-		<img class="layout wide-size" src="<?php the_field('identity_design_image'); ?>">
-	<?php } ?>
-		<?php 
-		$j =0;
-		while( have_rows('identity_design_story') ): the_row(); ?>
-		<?php if ($j % 2 == 0){ ?>
-			<div class="project-step even step<?php echo $j;?> layout">
-		<?php } else { ?>
-			<div class="project-step step<?php echo $j;?> odd layout">
-		<?php } ?>
-			<div class="story-text">
-				<?php the_sub_field('identity_design_step'); ?>
-			</div>
-			<div class="story-gallery">
-				<?php 
-				if(have_rows('step_gallery')):
-					while(have_rows('step_gallery')): the_row(); 
-					$gallery_photos = get_sub_field('gallery_images');
-					$photoArray = array();
-					foreach( $gallery_photos as $photos){
-						foreach($photos as $photo){
-							//get caption, thumbnail, and fullsize image for lightbox
-							$photoArray[] = array($photo['caption'], $photo['url']);
-						}
-						// pa($photos);
-					} 
-					// pa($photoArray);
-				?>
-				<div class="photo-container">
-					<ul class="bxslider identity-slider" id="<?php echo 'slider' . $j; ?>">
-					<?php for($i=0; $i < count($photoArray); $i++){ ?>
-						<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></li>
-					<?php } ?> <!-- for -->
-					</ul>
-				</div>
-			</div> <!-- story-gallery -->
-		</div> <!-- project-step -->
-		<?php $j++; endwhile; ?>
+	<?php if( have_rows('project_stories') ): 
+			while( have_rows('project_stories') ): the_row(); ?>
+				<h2><span><?php the_sub_field('project_type'); ?></span></h2>
+			<?php if(get_sub_field('story_image')){ ?>
+				<img class="layout wide-size" src="<?php the_sub_field('story_image'); ?>">
+			<?php } 
+				if(have_rows('project_story')){
+					$j =0;
+					while(have_rows('project_story')): the_row();
+					if ($j % 2 == 0){ ?>
+						<div class="project-step even step<?php echo $j;?> layout">
+					<?php } else { ?>
+						<div class="project-step step<?php echo $j;?> odd layout">
+					<?php } ?>
+						<div class="story-text">
+							<?php the_sub_field('project_step'); ?>
+						</div> <!-- story-text -->
+						<div class="story-gallery">
+							<?php 
+								if(have_rows('step_gallery')):
+									$photoArray = array();
+									while(have_rows('step_gallery')): the_row(); 
+										$gallery_photos = get_sub_field('gallery_images');
+										// pa($gallery_photos);
+										// echo $gallery_photos['caption'];
+										$photoArray[] = array($gallery_photos['caption'], $gallery_photos['url']);
+									endwhile; 
+								endif; //step_gallery rows
+								?>
+							<div class="photo-container">
+								<ul class="bxslider identity-slider" id="<?php echo 'slider' . $j; ?>">
+								<?php for($i=0; $i < count($photoArray); $i++){ ?>
+									<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></li>
+								<?php } ?> <!-- for -->
+								</ul>
+							</div> <!-- photo-container -->
+						</div> <!-- story-gallery -->
+					</div> <!-- project-step -->
+			<?php 
+				$j++;
+					endwhile;  //endwhile project_story
+			} //if project_story
+			?>
+		<?php  endwhile; ?>
 	<?php endif; ?>
-	<?php if(have_rows('website_design_story')): ?>
-		<h2><span>Website Design</span></h2>
-		<?php if(get_field('website_design_image')){ ?>
-			<img class="layout wide-size" src="<?php the_field('website_design_image'); ?>">
-		<?php } ?>
-		<?php 
-		$w = 0;
-		while( have_rows('website_design_story') ): the_row(); ?>
-		<?php if ($w % 2 == 0){ ?>
-			<div class="web-step even step<?php echo $w;?> layout">
-		<?php } else { ?>
-			<div class="web-step odd step<?php echo $w;?> layout">
-		<?php } ?>
-			<div class="story-text">
-				<?php the_sub_field('website_design_step'); ?>
-			</div>
-			<div class="story-gallery">
-				<?php 
-					$web_gallery_photos = get_sub_field('web_step_gallery');
-					$webPhotoArray = array();
-					foreach( $web_gallery_photos as $photos){
-						foreach($photos as $photo){
-							//get caption, thumbnail, and fullsize image for lightbox
-							$webPhotoArray[] = array($photo['caption'], $photo['url']);
-						}
-						// pa($photos);
-					} 
-					// pa($photoArray);
-				?>
-				<div class="photo-container">
-					<ul class="bxslider website-slider" id="<?php echo 'slider' . $w; ?>">
-					<?php for($i=0; $i < count($webPhotoArray); $i++){ ?>
-						<li><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $webPhotoArray[$i][0];?>" src="<?php echo $webPhotoArray[$i][1];?>"></li>
-					<?php } ?> <!-- for -->
-					</ul>
-				</div>
-			</div> <!-- story-gallery -->
-		</div>
-	
-		<?php 
-		$w++;
-		endwhile; ?> <!-- while website_design_story -->
-
-	<?php endif; ?> <!-- end website_design_story -->
 </div> <!-- project-story -->
 <?php if(get_field('testimonial')){ ?>
 <div id="testimonial" style="background-image:url('<?php echo get_field('testimonial_image'); ?>');">

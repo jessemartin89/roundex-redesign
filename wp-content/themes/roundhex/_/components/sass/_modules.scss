@@ -276,12 +276,17 @@ header #contact-header{
 .lightbox{
 	position:fixed;
 	z-index:999;
+	padding:10px;
+	background-color: $mainBG;
 	img{
 		width:80%;
 	}
 	&.hide{
 		display:none;
 	}
+	#close-lightbox{
+		display:block;
+	} //close-lightbox
 } //lightbox
 
 #project-header{
@@ -291,9 +296,17 @@ header #contact-header{
 	h1{
 		font-size:24px;
 		line-height:30px;
+		@include at-breakpoint($desktop){
+			font-size: 40px;
+			line-height:50px;
+		} //desktop
 	} //h1
 	h3{
 		font-size:16px;
+		@include at-breakpoint($desktop){
+			font-size:24px;
+			line-height:30px;
+		} //desktop
 	} //h3
 } //project-header
 
@@ -360,6 +373,22 @@ header #contact-header{
 .project-step, .web-step{
 	margin-bottom:20px;
 }
+
+.the-shanghai-quartet{
+	.project-step.step4{
+		.story-text{
+			@include at-breakpoint($desktop){
+				@include span-columns(4 omega,7);
+			} //desktop
+		} //story-text
+
+		.story-gallery{
+			@include at-breakpoint($desktop){
+				@include span-columns(3, 7);
+			} //desktop
+		} //story-gallery
+	} //project-step.step4
+} //the-shanghai-quartet
 
 #intro-blurb{
 	padding-bottom:70px;
