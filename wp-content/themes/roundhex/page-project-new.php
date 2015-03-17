@@ -130,9 +130,10 @@ $lastID = end($pages);
 <?php get_footer('project'); ?>
 </section>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox/lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox/css/lightbox.css" />
 <script>jQuery(document).ready(function(){
-	jQuery('body').append('<div class="lightbox-overlay"></div>');
+	
 	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
 	var sliderCount = jQuery('.bxslider').length;
 	// var sliderIndex = sliderCount - 1;
@@ -143,58 +144,7 @@ $lastID = end($pages);
 		k++;
 	}
 
-	//slideshow zoom
-	jQuery('.zoom-slide').click(function(e){
-        e.preventDefault();
-        //get this slideshows current slide
-        var getSlide = jQuery(this).parents('.bx-controls').siblings('.bx-viewport').find('.bxslider');
-        // console.log(getSlide);
-        var currentSlideIndex = parseInt(getSlide.attr('id').replace('slider' , ''));
-        // console.log(currentSlideIndex);
-        // console.log(project_bx_array[currentSlideIndex]);
-        var currentSlide = project_bx_array[currentSlideIndex].getCurrentSlideElement();
-        jQuery( currentSlide ).trigger( "click" );
-
-        // get slide image
-        // currentImgSrc = currentSlide.find('img').attr('src');
-        // console.log(currentImgSrc);
-        //add overlay
-        jQuery('.lightbox-overlay').addClass('visible');
-        jQuery('body').append('<div class="lightbox"><a id="close-lightbox" href="">close</a>' + project_bx_array[currentSlideIndex] + '</div>');
-        centerContent();
-
-        jQuery('#close-lightbox').click(function(e) {
-        	e.preventDefault();
-			clearPopup();	
-		});	
-
-		jQuery(document).keyup(function(e) {
-	        if (e.keyCode == 27 && jQuery('.lightbox-overlay').hasClass('visible')) {
-	            clearPopup();
-	        }
-	    });
-
-	    function clearPopup(){
-	    	if(jQuery('.lightbox-overlay.visible').length >0){
-				jQuery('.lightbox-overlay').toggleClass('visible');
-				jQuery('.lightbox').toggleClass('hide');
-			}
-	    }
-
-        //add image to center of screen at 95% width
-        //add close button
-        function centerContent(){
-			var overlayImageWidth = jQuery('.lightbox img').width();
-			var overlayImageHeight = jQuery('.lightbox img').height();
-			var windowWidth = jQuery(window).width();
-			var windowHeight = jQuery(window).height();
-			var overlayTop = (windowHeight/2) - (overlayImageHeight/2);
-			var overlayLeft = (windowWidth/2) - (overlayImageWidth/2);
-
-			jQuery('.lightbox').css({'left': overlayLeft, 'top': overlayTop, 'width': overlayImageWidth + 20});
-			
-		}
-    }) ; //zoom-slide click  
+	 
   
 });</script>
 <?php get_footer(); ?>

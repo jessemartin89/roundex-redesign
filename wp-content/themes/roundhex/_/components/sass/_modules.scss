@@ -216,17 +216,21 @@ header #contact-header{
 
 // Featured Work --------------------------------------------
 #featured-work-container{
+	padding-bottom:50px;
 	.featured-work{
 		margin-bottom:35px;
 		img{
 			width: 100%;
-			margin-bottom:15px;
 		} //img
 		a{
 			display:block;
 		}
 		span{
 			display:block
+		}
+
+		picture ~ p{
+			margin-bottom:41px;
 		}
 		@include at-breakpoint($medium){
 			a, span{
@@ -249,18 +253,7 @@ header #contact-header{
 	text-align:center;
 	img{
 		width:100%;
-		margin-bottom:30px;
-		&.wide-size{
-			display:none;
-		}
-		@include at-breakpoint($medium){
-			&.portrait-size{
-				display:none;
-			}
-			&.wide-size{
-				display:block;
-			}
-		} //medium
+		margin-bottom:15px;
 	} //img
 	a:after{
 		content: '';
@@ -281,54 +274,101 @@ header #contact-header{
 
 // Portfolio Page --------------------------------------------
 #portfolio{
-	p{margin-bottom:0;}
+	p{
+		margin-bottom:0;
+		&.heading{
+			margin-bottom:15px;
+		}
+	}
+} //#portfolio
+
+.portfolio{
+	.entry-content{padding-top:45px;}
 }
 
 // Project ------------------------------
-.lightbox-overlay{
-	display:none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.7);
-    z-index:99;	
-    &.visible{
-    	display:block;
-    } //visible
-} //overlay
+	//lightbox
+	.lb-data{
+		.lb-number{display:none !important;}
+		.lb-caption{
+			font-weight: $light !important; 
+			font-style:italic; 
+			font-size:19px !important;
+		} //lb-caption
+	} //lb-data
+	.lb-outerContainer{max-width: 90%;}
+	.lb-close{
+		margin-top:-35px;
+		width:20px;
+		height:20px;
+		background: url(images/close.png) top right no-repeat;
+		@include background-size(cover);
+	} //lb-close
 
-.lightbox{
-	position:fixed;
-	z-index:999;
-	color:$disabledButton;
-	width: columns(6,7);
-	img{
-		width:100%;
-	}
-	&.hide{
-		display:none;
-	}
-	#close-lightbox{
-		display:block;
-	} //close-lightbox
-} //lightbox
+	.lb-prev, .lb-next {
+	  height: 100%;
+	  cursor: pointer;
+	  display: block;
+	} //.lb-prev, .lb-next
+
+	.lb-nav {
+		@include span-columns(2 omega,7);
+		a.lb-prev {
+			background-image: url('images/left-arrow-med-orange.png');
+			@include background-size(contain);
+			background-repeat:no-repeat;
+			&.disabled{
+				background-image: url('images/left-arrow-med-grey.png');
+				cursor: default;
+			} //bx-prev.disabled
+		  	width: 20px;
+		  	height: 20px;
+		  	left: 0;
+		  	float: left;
+		  	display:block !important;
+		} //a.lb-prev 
+		a.lb-next{
+			background-image: url('images/right-arrow-med-orange.png');
+			@include background-size(contain);
+			background-repeat:no-repeat;
+				&.disabled{
+					background-image: url('images/right-arrow-med-grey.png');
+					cursor: default;
+				} //bx-prev.disabled
+			  width: 20px;
+			  height: 20px;
+			  right: 0;
+			  float: right;
+			  display:block !important;
+		} //a.lb-next
+	} //.lb-nav 
+
+
+	.lb-caption{
+		@include span-columns(5, 7);
+	} //lb-caption
 
 #project-header{
 	width:100%;
 	padding:15px 0;
 	text-align:center;
 	h1{
-		font-size:24px;
-		line-height:30px;
+		font-size:30px;
+		line-height:40px;
+		@include at-breakpoint($large){
+			font-size:36px;
+			line-height:46px;
+		}
 		@include at-breakpoint($desktop){
 			font-size: 40px;
 			line-height:50px;
 		} //desktop
 	} //h1
 	h3{
-		font-size:16px;
+		font-size:18px;
+		@include at-breakpoint($large){
+			font-size:21px;
+		}
 		@include at-breakpoint($desktop){
 			font-size:24px;
 			line-height:30px;
@@ -432,13 +472,19 @@ header #contact-header{
 	@include at-breakpoint($medium){
 		padding-bottom:30px;
 	}
+	@include at-breakpoint($large){
+		padding-bottom:70px;
+	} //large
 }
 
 .photo-container{
 	position:relative;
 	overflow:hidden;
 	img{
-		width: 100%;
+		width: 101%;
+		@include at-breakpoint($medium){
+			width:100;
+		}
 	} //img
 } //photo-container
 
@@ -527,14 +573,23 @@ header #contact-header{
 			height: 12px;
 			width: 12px;
 		} //img
+		&:active{
+			background-color: darken($rhOrange, 40%);
+		}
 	} //a
 } //client-site
 
 .more-work{
 	margin-bottom:40px;
+	@include at-breakpoint($medium){
+		margin-bottom:70px;
+	} //medium
 	.more-work-details{
 		text-align:center;
-	}
+		@include at-breakpoint($medium){
+			margin-top:5px;
+		} //medium
+	} //.more-work-details
 	
 	a{
 		@include at-breakpoint($medium){
@@ -568,6 +623,13 @@ header #contact-header{
 				} //medium
 			} //p.title-nolink
 		} //p
+		.overlay{
+			background-color:rgba(0,0,0,.3);
+			@include background-size(cover);
+			position:absolute;
+			width: 97.7%;
+  			height: 84.5%;
+		}
 		p#now-viewing{
 			color: $white;
 			font-style:italic;
@@ -582,9 +644,7 @@ header #contact-header{
 				top: 31%;
 			}
 		} //p#now-viewing
-		.overlay{
-			background-color:rgba(0,0,0,.3);
-		}
+		
 	} //.more-work.current-work
 } //.more-work
 
@@ -645,22 +705,22 @@ header #contact-header{
 		width: columns(4,7);
 		margin-bottom:10px;
 		@include at-breakpoint($medium){
-			width: columns(2,7);	
+			width: columns(3,7);	
 		} //medium
 		@include at-breakpoint($large){
-			width: 100%;
+			width: 90%;
 		} //large
 	} //img
 
 	h4{
 		font-weight: $bold;
-		font-size:18px;
-		line-height:22px;
+		font-size:22px;
+		line-height:26px;
 	} //h4
 	h5{
 		font-weight: $bold;
-		font-size:14px;
-		line-height:17px;
+		font-size:17px;
+		line-height:20px;
 		margin-bottom: 20px;
 	} //h5
 	p{
@@ -688,7 +748,7 @@ header #contact-header{
 		.why-story{
 			margin-top:50px;
 			overflow:hidden;
-			div{
+			& > div{
 				@include span-columns(2,7);
 			} //div
 		} //why-story
@@ -696,8 +756,9 @@ header #contact-header{
 	img{
 		width: columns(4,7);
 		margin-top: 55px;
+		margin-bottom:15px;
 		@include at-breakpoint($medium){
-			width: columns(2,7);	
+			width: columns(3,7);	
 		} //medium
 		@include at-breakpoint($large){
 			width:100%;
@@ -706,13 +767,13 @@ header #contact-header{
 	} //img
 	h4{
 		font-weight: $bold;
-		font-size:18px;
-		line-height:22px;
+		font-size:22px;
+		line-height:26px;
 	} //h4
 	h5{
 		font-weight: $bold;
-		font-size:14px;
-		line-height:17px;
+		font-size:17px;
+		line-height:20px;
 		margin-bottom: 20px;
 	} //h5
 	.layout div ~ p{
@@ -770,7 +831,7 @@ header #contact-header{
 	} //subscribe button
 	#mc_signup_details{
 		@include at-breakpoint($medium){
-			@include span-columns(4, 7);
+			@include span-columns(3, 7);
 		} //medium
 		@include at-breakpoint($large){
 			@include span-columns(3,7);
@@ -779,9 +840,9 @@ header #contact-header{
 	} //mc_signup_details
 
 	#mc_signup_action{
-		padding-left:15px;
 		@include at-breakpoint($medium){
-			@include span-columns(3 omega, 7);
+			@include span-columns(4 omega, 7);
+			padding-left:15px;
 		} //medium
 		@include at-breakpoint($large){
 			@include span-columns(4 omega, 7);

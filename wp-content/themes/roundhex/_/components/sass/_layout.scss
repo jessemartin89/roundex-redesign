@@ -90,7 +90,7 @@ header#header{
 			display:block;
 			padding:20px 0;
 			@include at-breakpoint($medium){
-				padding: 30px 0 10px;
+				padding: 10px 0 10px;
 			} //medium
 			@include at-breakpoint($large){
 				width: 200px;
@@ -115,7 +115,7 @@ header nav#menu{
 	@include at-breakpoint($medium){
 		background-color: transparent;
 		@include span-columns(5 omega,7);
-		padding-top:48px;
+		padding-top:28px;
 		text-align:right;
 		padding-right:20px;
 	} //medium
@@ -212,31 +212,20 @@ div.hero{
 	position:relative;
 	display:block;
 	width:100%;
-	min-height:175px;
+	min-height:211px;
 	background-position: center top;
 	@include background-size(cover);
 	background-repeat:no-repeat;
 	margin: 0 auto;
 	@include clearfix;
 	@include at-breakpoint($large){
-		min-height:225px;
+		min-height:269px;
 	}
 	@include at-breakpoint($desktop){
 		min-height:425px;
 	}
 }
 
-.page-template-page-project-php{
-	div.hero{
-		@include at-breakpoint($medium){
-			min-height:225px;
-			@include background-size(100%);
-		} //medium
-		@include at-breakpoint($desktop){
-			min-height:425px;
-		}
-	} //div.hero
-} //page-template-page-project-php
 
 .entry-content{
 	padding: 30px 0 70px;
@@ -256,10 +245,17 @@ div.hero{
 
 // Portfolio Page --------------------------------------------
 .feature{
-	margin-bottom:50px;
+	margin-bottom:65px;
 	img{
 		margin: 10px 0 15px;
 	} //img
+	a, p.heading{
+		font-size: 19px;
+		@include at-breakpoint($large){
+			font-size:24px;
+			line-height:31px;
+		} //large
+	} //a, p.heading
 	@include at-breakpoint($large){
 		width: columns(5,7);
 		p:last-of-type{
@@ -272,6 +268,7 @@ div.hero{
 // Projects --------------------------------------------
 .bx-caption {
 	@include span-columns(4,7);
+	margin-top:4px;
 	&.full-caption{
 		@include span-columns(6, 7);
 		@include at-breakpoint($large){
@@ -293,6 +290,7 @@ div.hero{
 	} //desktop
 	img{
 		max-height: 334px;
+		border: 1px solid rgb(207,207,207);
 		@include at-breakpoint($medium){
 			max-height:510px;
 		} //medium
@@ -324,9 +322,9 @@ div.hero{
 		.disabled{display:none}
 	} //&.disabled-directions
 	.zoom-slide{
-		display:none;
+		display:none !important;
 		@include at-breakpoint($desktop){
-			display:inline-block;
+			display:inline-block !important;
 			background: url('images/zoom-icon.png') no-repeat;
 			height: 20px;
 			width:20px;
@@ -340,7 +338,7 @@ div.hero{
 			width:20px;
 		} //a
 	} //.bx-controls-direction
-	.bx-prev{
+	.bx-prev, .lb-nav a.lb-next{
 		background-image: url('images/left-arrow-med-orange.png');
 		@include background-size(contain);
 		background-repeat:no-repeat;
@@ -350,7 +348,7 @@ div.hero{
 		} //bx-prev.disabled
 	} //bx-prev
 
-	.bx-next{
+	.bx-next, .lb-nav a.lb-prev{
 		background-image: url('images/right-arrow-med-orange.png');
 		@include background-size(contain);
 		background-repeat:no-repeat;

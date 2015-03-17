@@ -36,7 +36,7 @@ get_header(); ?>
 	</div>
 </div>
 <div id="why-roundhex-full">
-	<h2><span>Why "Roundhex"?</span></h2>
+	<h2><span>Why "Round Hex"?</span></h2>
 	<?php if(get_field('why_round_hex_long')) { ?>
 		<div class="layout"><?php the_field('why_round_hex_long'); ?></div>
 	<?php } ?>

@@ -21,7 +21,7 @@ get_header(); ?>
 	<?php endif; ?>
 </div>
 <div id="why-roundhex">
-	<h2><span>Why Roundhex?</span></h2>
+	<h2><span>Why "Round Hex"?</span></h2>
 	<?php if(get_field('why_roundhex')) { ?>
 		<div class="layout"><?php the_field('why_roundhex'); ?></div>
 	<?php } ?>

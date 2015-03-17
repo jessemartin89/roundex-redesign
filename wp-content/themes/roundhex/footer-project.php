@@ -18,22 +18,21 @@
 		foreach($pages as $pageID){ 
 			if(get_the_ID() == $pageID){ ?>
 			<div class="more-work current-work">
-				<p id="now-viewing">Now Viewing</p>
-
+				<div class="overlay">
+					<p id="now-viewing">Now Viewing</p>
+				</div>
 			<?php } else { ?>
 				<div class="more-work">
 			<?php } ?>
-			<div class="overlay">
+			
 				<picture>
 					<?php if (get_field('wide_preview_image', $pageID)){ ?>
 						<source srcset="<?php the_field('wide_preview_image', $pageID); ?>" media="(min-width: 768px)">
 					<?php } ?>
 					<?php if (get_field('mobile_preview_image', $pageID)){ ?>
 						<img srcset="<?php the_field('mobile_preview_image', $pageID); ?>">
-					<?php } ?>
-						
+					<?php } ?>		
 				</picture>
-			</div>
 				<div class="more-work-details">
 					<?php if(get_the_ID() == $pageID){ ?>
 						<p class="title-nolink"><?php echo get_the_title($pageID) ;?></p>
