@@ -93,9 +93,8 @@ header#header{
 				padding: 10px 0 10px;
 			} //medium
 			@include at-breakpoint($large){
-				width: 200px;
+				width: 166px;
 				margin: 0;
-				padding-top:15px;
 			} //large
 		} //img
 	} //branding
@@ -121,7 +120,8 @@ header nav#menu{
 	} //medium
 	@include at-breakpoint($large){
 		@include span-columns(4 omega, 7);
-		padding-top:70px;
+		width: 58%;
+		padding-top:46px;
 	} //large
 	@include at-breakpoint($desktop){
 		padding-right:40px;
@@ -133,8 +133,10 @@ header nav#menu{
 		font-weight: $bold;
 		margin-right:40px;
 		position:relative;
+		padding-bottom:5px;
 		@include at-breakpoint($large){
-			font-size:15px;
+			font-size:16px;
+			margin-right:45px;
 		}
 		&:before{
 			height:27px; 
@@ -154,9 +156,10 @@ header nav#menu{
 			text-transform: uppercase;
 			padding-bottom:5px;
 		} //a
-		&.current-menu-item a, &.current-page-ancestor a{
-			border-bottom:5px solid $rhOrange;
-		}
+		&.current-menu-item, &.current-page-ancestor{
+			padding-bottom:0;
+			a{border-bottom:5px solid $rhOrange;}	
+		} // &.current-menu-item, &.current-page-ancestor
 		&.portfolio{
 			&:before{
 				content: '';
@@ -268,14 +271,18 @@ div.hero{
 // Projects --------------------------------------------
 .bx-caption {
 	@include span-columns(4,7);
+	border-right: 1px solid rgb(207,207,207);
+	padding-right:5px;
 	margin-top:4px;
 	&.full-caption{
+		border:none;
+		padding-right:0;
 		@include span-columns(6, 7);
 		@include at-breakpoint($large){
 			width: auto;
 		}
 		@include at-breakpoint($desktop){
-			@include span-columns(6, 7);
+			@include span-columns(5, 7);
 		}
 	} //.bx-caption.full-caption
 } //.bx-caption
@@ -305,18 +312,21 @@ div.hero{
 
 .bx-controls{
 	@include span-columns(3 omega,7);
-	margin-top:-55px;
-	position:relative;
+	bottom:44px;
+	right:0;
+	position:absolute;
 	z-index:3;
 	background-color: $mainBG;
 	text-align:right;
-	border-left: 1px solid rgb(207,207,207);
 	@include at-breakpoint($desktop){
 		margin-top:-75px;
 	}
 	&.disabled-directions{
 		@include at-breakpoint($desktop){
 			@include span-columns(1 omega, 7);
+			.zoom-slide{
+				margin-left:-20px;
+			}
 			border:none;
 		}
 		.disabled{display:none}
@@ -337,6 +347,7 @@ div.hero{
 			height:20px;
 			width:20px;
 		} //a
+		margin-right:30px;
 	} //.bx-controls-direction
 	.bx-prev, .lb-nav a.lb-next{
 		background-image: url('images/left-arrow-med-orange.png');

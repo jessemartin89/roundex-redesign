@@ -2,12 +2,19 @@
 header #contact-header{
 	overflow:hidden;
 	padding-bottom:10px;
+	@include at-breakpoint($large){
+		font-size:20px;
+		padding-bottom:0;
+		&.layout{
+			width:93%;
+		}
+	} //large
 	@include at-breakpoint($desktop){
 		&.layout{
 			width: 90%;
-			font-size:30px;
-		}
-	}
+		} //layout
+		font-size:30px;
+	} //desktop
 	#contact-email{
 		margin-left:21px;
 		a{
@@ -22,7 +29,8 @@ header #contact-header{
 				background-repeat: no-repeat;
 				margin-left:-17px;
 				margin-top:7px;
-				@include at-breakpoint($desktop){
+
+				@include at-breakpoint($large){
 					width:25px;
 					height:25px;
 					margin-left:-32px;
@@ -34,6 +42,10 @@ header #contact-header{
 			margin-top:15px;
 			margin-left: 65px;
 		} //medium
+		@include at-breakpoint($large){
+			margin-left:235px;
+			margin-top:10px;
+		}
 		@include at-breakpoint($desktop){
 			margin-top:0;
 		} //desktop
@@ -53,6 +65,12 @@ header #contact-header{
 				background-repeat: no-repeat;
 				margin-left:-17px;
 				margin-top:7px;
+				@include at-breakpoint($large){
+					width:25px;
+					height:25px;
+					margin-top:3px;
+					margin-left:-28px;
+				}
 				@include at-breakpoint($desktop){
 					width:25px;
 					height:25px;
@@ -61,9 +79,13 @@ header #contact-header{
 				} //desktop
 			} //span:before
 		} //span
+		a{color: $fontColor;}
 		@include at-breakpoint($medium){
 			margin: 15px 20px 0 0;
 		} //medium
+		@include at-breakpoint($large){
+			margin: 10px 20px 0 0;
+		}
 		@include at-breakpoint($desktop){
 			clear:right;
 			margin-right:0px;
@@ -77,6 +99,9 @@ header #contact-header{
 			width:auto;
 			height:30px;
 			float:right;
+			@include at-breakpoint($large){
+				height:50px;
+			} //large
 		} //img
 		@include at-breakpoint($medium){
 			float:right;
@@ -115,6 +140,46 @@ header #contact-header{
 	-moz-transform: translateY(0px);
 	transform: translateY(0px);
 }
+
+/* page slide */
+.slide.in {
+	    -webkit-transform: translateX(0);
+	    -webkit-animation-name: slideinfromright;
+	}
+
+	.slide.out {
+	    -webkit-transform: translateX(-100%);
+	    -webkit-animation-name: slideouttoleft;
+	}
+
+	@-webkit-keyframes slideinfromright {
+	    from { -webkit-transform: translateX(100%); }
+	    to { -webkit-transform: translateX(0); }
+	}
+	@-webkit-keyframes slideouttoleft {
+	    from { -webkit-transform: translateX(0); }
+	    to { -webkit-transform: translateX(-100%); }
+	}
+	
+.slide.in.reverse {
+		    -webkit-transform: translateX(0);
+		    -webkit-animation-name: slideinfromleft;
+		}
+
+		.slide.out.reverse {
+		    -webkit-transform: translateX(100%);
+		    -webkit-animation-name: slideouttoright;
+		}
+
+		@-webkit-keyframes slideinfromleft {
+		    from { -webkit-transform: translateX(-100%); }
+		    to { -webkit-transform: translateX(0); }
+		}
+
+		@-webkit-keyframes slideouttoright {
+		    from { -webkit-transform: translateX(0); }
+		    to { -webkit-transform: translateX(100%); }
+		}
 
 /* Icon Wobble Vertical */
 @-webkit-keyframes hvr-icon-wobble-vertical {
@@ -236,7 +301,7 @@ header #contact-header{
 			a, span{
 				display:inline;
 			}
-			a:after{
+			p ~p a:after{
 					content: '|';
 					color: rgb(179,179,179);
 					padding: 0 20px;
@@ -348,10 +413,14 @@ header #contact-header{
 		@include span-columns(5, 7);
 	} //lb-caption
 
+
 #project-header{
 	width:100%;
 	padding:15px 0;
 	text-align:center;
+	@include at-breakpoint($desktop){
+		min-height:165px;
+	}
 	h1{
 		font-size:30px;
 		line-height:40px;
@@ -360,8 +429,8 @@ header #contact-header{
 			line-height:46px;
 		}
 		@include at-breakpoint($desktop){
-			font-size: 40px;
-			line-height:50px;
+			font-size: 52px;
+			line-height:70px;
 		} //desktop
 	} //h1
 	h3{
@@ -370,8 +439,8 @@ header #contact-header{
 			font-size:21px;
 		}
 		@include at-breakpoint($desktop){
-			font-size:24px;
-			line-height:30px;
+			font-size:34px;
+			line-height:48px;
 		} //desktop
 	} //h3
 } //project-header
@@ -483,7 +552,10 @@ header #contact-header{
 	img{
 		width: 101%;
 		@include at-breakpoint($medium){
-			width:100;
+			width:100%;
+		}
+		@include at-breakpoint($desktop){
+			width:90%;
 		}
 	} //img
 } //photo-container
@@ -494,6 +566,9 @@ header #contact-header{
 	background-repeat:no-repeat;
 	background-position:20%;
 	padding: 20px 0;
+	@include at-breakpoint($desktop){
+		min-height:330px;
+	}
 	blockquote{
 		text-align:center;
 		color: $white;
@@ -511,6 +586,10 @@ header #contact-header{
 			font-style: italic;	
 			position:relative;
 			z-index: 2;
+			@include at-breakpoint($desktop){
+				font-size:30px;
+				line-height:39px;
+			}
 		} //p
 		&:before, &:after{
 			content: '';
@@ -530,6 +609,9 @@ header #contact-header{
 			@include at-breakpoint($large){
 				margin-left:-290px;
 			} //large
+			@include at-breakpoint($desktop){
+				margin-top:38px;
+			}
 		} //blockquote:before
 		&:after{
 			background: url('images/right-quotes.png') no-repeat;
@@ -556,6 +638,11 @@ header #contact-header{
 	&:before{
 		content:"\2014";
 	} //testimonial-source:before
+	@include at-breakpoint($desktop){
+		font-size: 20px;
+		line-height:25px;
+		margin-bottom:30px;
+	}
 }//testimonial-source
 
 #client-site{
@@ -568,6 +655,11 @@ header #contact-header{
 		line-height:20px;
 		padding: 5px 20px;
 		font-weight: $regular;
+		@include at-breakpoint($desktop){
+			padding: 5px 20px 9px;
+			font-size:22px;
+			line-height:30px;
+		}
 		@include border-radius;
 		img{
 			height: 12px;
@@ -796,15 +888,22 @@ header #contact-header{
 		font-size: 14px;
 		line-height: 20px;
 		margin-bottom:10px;
+		@include at-breakpoint($medium){
+			font-size: 17px;
+			line-height:22px;
+		} //medium
+		@include at-breakpoint($large){
+			font-size:16px;
+		} //large
 		@include at-breakpoint($desktop){
 			font-size:16px;
 			line-height:24px;
-		}
+		} //desktop
 	} //p
 	input#mc4wp_email{
 		background-color: $mainBG;
-		font-size:14px;
-		padding: 5px;
+		font-size:16px;
+		padding: 7px 5px;
 		@include border-radius;
 		@include box-shadow(rgba(0,0,0,.14) 2px 2px 6px inset);
 		border:none;
@@ -813,6 +912,9 @@ header #contact-header{
 		}
 		margin-bottom:15px;
 		max-width: 90%;
+		@include at-breakpoint($large){
+			max-width:100%;
+		} //large
 		@include at-breakpoint($desktop){
 			font-size:16px;
 		} //desktop
@@ -832,10 +934,12 @@ header #contact-header{
 	#mc_signup_details{
 		@include at-breakpoint($medium){
 			@include span-columns(3, 7);
+			width: 46%;
 		} //medium
 		@include at-breakpoint($large){
-			@include span-columns(3,7);
+			width:50%;
 		}
+
 
 	} //mc_signup_details
 
@@ -843,10 +947,14 @@ header #contact-header{
 		@include at-breakpoint($medium){
 			@include span-columns(4 omega, 7);
 			padding-left:15px;
+			padding-top:35px;
+			width:50%;
 		} //medium
+
 		@include at-breakpoint($large){
-			@include span-columns(4 omega, 7);
-		} //large
+			padding-top:0;
+			width:46%;
+		}
 
 		} //mc_signup_action
 } //newsletter

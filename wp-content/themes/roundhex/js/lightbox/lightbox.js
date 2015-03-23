@@ -94,7 +94,9 @@
 
       this.$lightbox.find('.lb-prev').on('click', function() {
         if (self.currentImageIndex === 0) {
-          self.changeImage(self.album.length - 1);
+          if (this.options.wrapAround) {
+            self.changeImage(self.album.length - 1);
+          }
         } else {
           self.changeImage(self.currentImageIndex - 1);
         }
@@ -103,7 +105,9 @@
 
       this.$lightbox.find('.lb-next').on('click', function() {
         if (self.currentImageIndex === self.album.length - 1) {
-          self.changeImage(0);
+          if (this.options.wrapAround) {
+            self.changeImage(0);
+          }
         } else {
           self.changeImage(self.currentImageIndex + 1);
         }

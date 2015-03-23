@@ -39,23 +39,24 @@ $lastID = end($pages);
     <?php if (!empty($prevID)) { ?>
     <div class="prev-arrow">
 	    <a href="<?php  echo get_permalink($prevID); ?>"
-	      title="<?php  echo get_the_title($prevID); ?>" class="previous-page"></a>
+	      title="<?php  echo get_the_title($prevID); ?>" 
+    data-animsition-in="overlay-slide-in-left" class="animsition-link previous-page"></a>
     </div>
     <?php } else { ?>
     	<div class="prev-arrow">
 		    <a href="<?php  echo get_permalink($lastID); ?>"
-		      title="<?php  echo get_the_title($lastID); ?>" class="previous-page"></a>
+		      title="<?php  echo get_the_title($lastID); ?>" data-animsition-in="overlay-slide-in-left" class="animsition-link previous-page"></a>
 	    </div>
     <?php }
     if (!empty($nextID)) { ?>
     <div class="next-arrow">
 	    <a href="<?php echo get_permalink($nextID); ?>" 
-	     title="<?php  echo get_the_title($nextID); ?>" class="next-page"></a>
+	     title="<?php  echo get_the_title($nextID); ?>" data-animsition-in="overlay-slide-in-right" class="animsition-link next-page"></a>
     </div>
     <?php } else { ?>
     	<div class="next-arrow">
 		    <a href="<?php echo get_permalink($firstID); ?>" 
-		     title="<?php  echo get_the_title($firstID); ?>" class="next-page"></a>
+		     title="<?php  echo get_the_title($firstID); ?>" data-animsition-in="overlay-slide-in-right" class="animsition-link next-page"></a>
 	    </div>
     <?php } ?>
 </nav><!-- #pagination --> 
@@ -93,7 +94,7 @@ $lastID = end($pages);
 							<div class="photo-container">
 								<ul class="bxslider" id="<?php echo 'slider' . $j; ?>">
 								<?php for($i=0; $i < count($photoArray); $i++){ ?>
-									<li><a href="<?php echo $photoArray[$i][1];?>" data-lightbox="gallery<?php echo $j;?>" data-title="<?php echo $photoArray[$i][0];?>"><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></a></li>
+									<li><a href="<?php echo $photoArray[$i][1];?>" class="<?php echo 'photo' . $i; ?> gallery<?php echo $j;?>" data-lightbox="gallery<?php echo $j;?>" data-title="<?php echo $photoArray[$i][0];?>"><img class="<?php echo 'photo' . $i; ?>" title="<?php echo $photoArray[$i][0];?>" src="<?php echo $photoArray[$i][1];?>"></a></li>
 								<?php } ?> <!-- for -->
 								</ul>
 							</div> <!-- photo-container -->
@@ -131,20 +132,7 @@ $lastID = end($pages);
 </section>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.bxslider.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox/lightbox.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/project.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/animsition/js/jquery.animsition.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/js/lightbox/css/lightbox.css" />
-<script>jQuery(document).ready(function(){
-	
-	//get count of sliders, while loop starting with 0 and for each of them start the slider with these settings
-	var sliderCount = jQuery('.bxslider').length;
-	// var sliderIndex = sliderCount - 1;
-	var k = 0;
-	var project_bx_array = [];
-	while(k < sliderCount){
-		project_bx_array[k] = jQuery('.bxslider#slider' + k).bxSlider({captions: true, pager: false, nextText: ' ', prevText: ' ', infiniteLoop: false, hideControlOnEnd: true});
-		k++;
-	}
-
-	 
-  
-});</script>
 <?php get_footer(); ?>

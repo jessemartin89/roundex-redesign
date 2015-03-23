@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
     $('li.contact a').click(function(e){
     	e.preventDefault();
-    	$('#contact-header').slideDown();
+    	$('#contact-header').slideToggle();
 
     }); //li a click
 

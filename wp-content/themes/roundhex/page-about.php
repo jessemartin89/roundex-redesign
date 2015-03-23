@@ -35,7 +35,7 @@ get_header(); ?>
 		<?php the_field('talent_pool'); ?>
 	</div>
 </div>
-<div id="why-roundhex-full">
+<div name="why-roundhex-full" id="why-roundhex-full">
 	<h2><span>Why "Round Hex"?</span></h2>
 	<?php if(get_field('why_round_hex_long')) { ?>
 		<div class="layout"><?php the_field('why_round_hex_long'); ?></div>
