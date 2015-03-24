@@ -93,22 +93,15 @@
       });
 
       this.$lightbox.find('.lb-prev').on('click', function() {
-        if (self.currentImageIndex === 0) {
-          if (this.options.wrapAround) {
-            self.changeImage(self.album.length - 1);
-          }
-        } else {
+        if (self.currentImageIndex !== 0) {
+            // self.changeImage(self.album.length - 1);
           self.changeImage(self.currentImageIndex - 1);
         }
         return false;
       });
 
       this.$lightbox.find('.lb-next').on('click', function() {
-        if (self.currentImageIndex === self.album.length - 1) {
-          if (this.options.wrapAround) {
-            self.changeImage(0);
-          }
-        } else {
+        if (self.currentImageIndex !== self.album.length - 1) {
           self.changeImage(self.currentImageIndex + 1);
         }
         return false;
@@ -309,12 +302,18 @@
             if (alwaysShowNav) {
               this.$lightbox.find('.lb-prev').css('opacity', '1');
             }
+            this.$lightbox.find('.lb-prev').removeClass('disabled');
+          } else {
+            this.$lightbox.find('.lb-prev').addClass('disabled');
           }
           if (this.currentImageIndex < this.album.length - 1) {
             this.$lightbox.find('.lb-next').show();
             if (alwaysShowNav) {
               this.$lightbox.find('.lb-next').css('opacity', '1');
             }
+            this.$lightbox.find('.lb-next').removeClass('disabled');
+          } else {
+            this.$lightbox.find('.lb-next').addClass('disabled');
           }
         }
       }

@@ -263,7 +263,7 @@
 				// if pager is requested, add it
 				if(slider.settings.pager){ appendPager(); }
 				// if any control option is requested, add the controls wrapper
-				if(slider.settings.controls || slider.settings.autoControls || slider.settings.pager){ slider.viewport.after(slider.controls.el); }
+				if(slider.settings.controls || slider.settings.autoControls || slider.settings.pager){ slider.viewport.append(slider.controls.el); }
 			// if ticker mode, do not allow a pager
 			} else {
 				slider.settings.pager = false;

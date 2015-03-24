@@ -23,9 +23,14 @@ jQuery(document).ready(function($) {
 
         $('.gallery' + currentSliderId + '.photo' + currentSlideId).trigger("click");
 
-
     });
 
+    $('.bx-controls').each(function(){
+        // console.log($(this).prev('.bxslider').find('li a img'));
+       var sliderHeight =  $(this).prev('.bxslider').find('img').height() + 10;
+       // console.log(sliderHeight);
+       $(this).css('top', sliderHeight + 'px');
+    });
 
   
   $(".animsition-overlay").animsition({
@@ -52,5 +57,5 @@ jQuery(document).ready(function($) {
     overlayParentElement  :   'body'
   });
 
-
 });
+

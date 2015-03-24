@@ -593,48 +593,47 @@ div.hero {
 }
 
 /* line 313, _/components/sass/_layout.scss */
+.bx-wrapper {
+  position: relative;
+}
+
+/* line 317, _/components/sass/_layout.scss */
 .bx-controls {
   width: 41.25874%;
   float: right;
   margin-right: 0;
   *margin-left: -1em;
   display: inline;
-  bottom: 44px;
   right: 0;
   position: absolute;
   z-index: 3;
   background-color: #faf9f9;
   text-align: right;
+  top: 200px;
 }
 @media (min-width: 64em) {
-  /* line 313, _/components/sass/_layout.scss */
-  .bx-controls {
-    margin-top: -75px;
-  }
-}
-@media (min-width: 64em) {
-  /* line 324, _/components/sass/_layout.scss */
+  /* line 327, _/components/sass/_layout.scss */
   .bx-controls.disabled-directions {
     width: 11.88811%;
     float: right;
     margin-right: 0;
     border: none;
   }
-  /* line 327, _/components/sass/_layout.scss */
+  /* line 330, _/components/sass/_layout.scss */
   .bx-controls.disabled-directions .zoom-slide {
     margin-left: -20px;
   }
 }
-/* line 332, _/components/sass/_layout.scss */
+/* line 335, _/components/sass/_layout.scss */
 .bx-controls.disabled-directions .disabled {
   display: none;
 }
-/* line 334, _/components/sass/_layout.scss */
+/* line 337, _/components/sass/_layout.scss */
 .bx-controls .zoom-slide {
   display: none !important;
 }
 @media (min-width: 64em) {
-  /* line 334, _/components/sass/_layout.scss */
+  /* line 337, _/components/sass/_layout.scss */
   .bx-controls .zoom-slide {
     display: inline-block !important;
     background: url("images/zoom-icon.png") no-repeat;
@@ -646,17 +645,17 @@ div.hero {
     background-size: contain;
   }
 }
-/* line 344, _/components/sass/_layout.scss */
+/* line 347, _/components/sass/_layout.scss */
 .bx-controls .bx-controls-direction {
   margin-right: 30px;
 }
-/* line 345, _/components/sass/_layout.scss */
+/* line 348, _/components/sass/_layout.scss */
 .bx-controls .bx-controls-direction a {
   display: inline-block;
   height: 20px;
   width: 20px;
 }
-/* line 352, _/components/sass/_layout.scss */
+/* line 355, _/components/sass/_layout.scss */
 .bx-controls .bx-prev, .bx-controls .lb-nav a.lb-next {
   background-image: url("images/left-arrow-med-orange.png");
   -moz-background-size: contain;
@@ -665,12 +664,12 @@ div.hero {
   background-size: contain;
   background-repeat: no-repeat;
 }
-/* line 356, _/components/sass/_layout.scss */
+/* line 359, _/components/sass/_layout.scss */
 .bx-controls .bx-prev.disabled, .bx-controls .lb-nav a.lb-next.disabled {
   background-image: url("images/left-arrow-med-grey.png");
   cursor: default;
 }
-/* line 362, _/components/sass/_layout.scss */
+/* line 365, _/components/sass/_layout.scss */
 .bx-controls .bx-next, .bx-controls .lb-nav a.lb-prev {
   background-image: url("images/right-arrow-med-orange.png");
   -moz-background-size: contain;
@@ -680,23 +679,23 @@ div.hero {
   background-repeat: no-repeat;
   margin-left: 50px;
 }
-/* line 367, _/components/sass/_layout.scss */
+/* line 370, _/components/sass/_layout.scss */
 .bx-controls .bx-next.disabled, .bx-controls .lb-nav a.lb-prev.disabled {
   background-image: url("images/right-arrow-med-grey.png");
   cursor: default;
 }
 @media (min-width: 64em) {
-  /* line 362, _/components/sass/_layout.scss */
+  /* line 365, _/components/sass/_layout.scss */
   .bx-controls .bx-next, .bx-controls .lb-nav a.lb-prev {
     margin: 0;
   }
 }
-/* line 375, _/components/sass/_layout.scss */
+/* line 378, _/components/sass/_layout.scss */
 .bx-controls .zoom-slide {
   margin: 0 20px 0 15px;
 }
 
-/* line 380, _/components/sass/_layout.scss */
+/* line 383, _/components/sass/_layout.scss */
 #project-header {
   position: absolute;
   bottom: 0;
@@ -704,19 +703,19 @@ div.hero {
   color: #f1f1f1;
 }
 
-/* line 388, _/components/sass/_layout.scss */
+/* line 391, _/components/sass/_layout.scss */
 footer#footer {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 390, _/components/sass/_layout.scss */
+/* line 393, _/components/sass/_layout.scss */
 footer#footer #newsletter {
   background-image: url("images/mock-embossed_smaller_pattern.jpg");
   padding: 30px 0;
   overflow: hidden;
 }
 @media (min-width: 64em) {
-  /* line 394, _/components/sass/_layout.scss */
+  /* line 397, _/components/sass/_layout.scss */
   footer#footer #newsletter .layout {
     width: 85.31469%;
   }
@@ -1169,6 +1168,7 @@ header #contact-header #close-contact img {
 /* line 364, _/components/sass/_modules.scss */
 .lb-outerContainer {
   max-width: 90%;
+  background-color: transparent !important;
 }
 
 /* line 365, _/components/sass/_modules.scss */

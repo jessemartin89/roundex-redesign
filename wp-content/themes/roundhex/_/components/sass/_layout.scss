@@ -310,16 +310,19 @@ div.hero{
 	} //img
 } //bx-viewport
 
+.bx-wrapper{
+	position:relative;
+}
+
 .bx-controls{
 	@include span-columns(3 omega,7);
-	bottom:44px;
 	right:0;
 	position:absolute;
 	z-index:3;
 	background-color: $mainBG;
 	text-align:right;
+	top:200px;
 	@include at-breakpoint($desktop){
-		margin-top:-75px;
 	}
 	&.disabled-directions{
 		@include at-breakpoint($desktop){
