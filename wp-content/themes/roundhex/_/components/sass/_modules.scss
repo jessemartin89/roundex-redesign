@@ -140,145 +140,6 @@ header #contact-header{
 	-moz-transform: translateY(0px);
 	transform: translateY(0px);
 }
-
-/* page slide */
-.slide.in {
-	    -webkit-transform: translateX(0);
-	    -webkit-animation-name: slideinfromright;
-	}
-
-	.slide.out {
-	    -webkit-transform: translateX(-100%);
-	    -webkit-animation-name: slideouttoleft;
-	}
-
-	@-webkit-keyframes slideinfromright {
-	    from { -webkit-transform: translateX(100%); }
-	    to { -webkit-transform: translateX(0); }
-	}
-	@-webkit-keyframes slideouttoleft {
-	    from { -webkit-transform: translateX(0); }
-	    to { -webkit-transform: translateX(-100%); }
-	}
-	
-.slide.in.reverse {
-		    -webkit-transform: translateX(0);
-		    -webkit-animation-name: slideinfromleft;
-		}
-
-		.slide.out.reverse {
-		    -webkit-transform: translateX(100%);
-		    -webkit-animation-name: slideouttoright;
-		}
-
-		@-webkit-keyframes slideinfromleft {
-		    from { -webkit-transform: translateX(-100%); }
-		    to { -webkit-transform: translateX(0); }
-		}
-
-		@-webkit-keyframes slideouttoright {
-		    from { -webkit-transform: translateX(0); }
-		    to { -webkit-transform: translateX(100%); }
-		}
-
-/* Icon Wobble Vertical */
-@-webkit-keyframes hvr-icon-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(6px);
-    transform: translateY(6px);
-  }
-
-  33.3% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-  }
-
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes hvr-icon-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(6px);
-    transform: translateY(6px);
-  }
-
-  33.3% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-  }
-
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.hvr-icon-wobble-vertical {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-.hvr-icon-wobble-vertical:before {
-  content: "\f062";
-  position: absolute;
-  right: 1em;
-  padding: 0 1px;
-  font-family: FontAwesome;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-.hvr-icon-wobble-vertical:hover:before, .hvr-icon-wobble-vertical:focus:before, .hvr-icon-wobble-vertical:active:before {
-  -webkit-animation-name: hvr-icon-wobble-vertical;
-  animation-name: hvr-icon-wobble-vertical;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
 // Featured Work --------------------------------------------
 #featured-work-container{
 	padding-bottom:50px;
@@ -444,6 +305,10 @@ header #contact-header{
 		} //desktop
 	} //h3
 } //project-header
+
+.bo-burlingham #project-header{
+	background-color:rgba(0,56,103,.75);
+}
 
 #project-story{
 	overflow:hidden;
@@ -715,13 +580,16 @@ header #contact-header{
 				} //medium
 			} //p.title-nolink
 		} //p
-		.overlay{
-			background-color:rgba(0,0,0,.3);
-			@include background-size(cover);
-			position:absolute;
-			width: 97.7%;
-  			height: 84.5%;
-		}
+		.image{
+			position:relative;
+			&:after{
+				content:'\A';
+			    position:absolute;
+			    width:100%; height:97%;
+			    top:0; left:0;
+			    background:rgba(0,0,0,0.6);
+			} //.image:after
+		} //.image
 		p#now-viewing{
 			color: $white;
 			font-style:italic;
@@ -732,6 +600,7 @@ header #contact-header{
 			position:absolute;
 			text-align: center;
 			width: 100%;
+			z-index:10;
 			@include at-breakpoint($medium){
 				top: 31%;
 			}

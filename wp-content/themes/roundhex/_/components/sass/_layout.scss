@@ -63,8 +63,25 @@ img{
 	}
 }
 header#header{
-	background-image:url('images/mock-embossed_smaller_pattern.jpg');
+	background-image:url('images/mobile-half.png');
+	background-repeat:no-repeat;
 	overflow:hidden;
+	background-position:top;
+	@include at-breakpoint($medium){
+		background-image:url('images/tablet-half.png');
+		background-position:left bottom;
+		@include single-transition(all, .2s, ease-out); 
+	}
+	@include at-breakpoint($large){
+		padding-top:30px;
+		&.removePadding{
+			padding-top:0;
+		} //removePadding
+	} //tablet
+	@include at-breakpoint($desktop){
+		background-image:url('images/desktop-half.png');
+		@include single-transition(all, .2s, ease-out); 
+	}
 
 	.branding{
 		@include at-breakpoint ($medium){
@@ -79,11 +96,6 @@ header#header{
 				display:block;
 			} //medium
 		} //wide-size
-		&.portrait{
-			@include at-breakpoint($medium){
-				display:none;
-			} //medium
-		} //portrait
 		img{
 			width:133px;
 			margin:0 auto;
@@ -102,6 +114,18 @@ header#header{
 	#contact-header{
 		display:none;
 	}
+} //header
+.branding{
+	&.portrait{
+		@include at-breakpoint($medium){
+			display:none;
+		} //medium
+		background-image:url('images/mobile-half.png');
+		background-repeat:no-repeat;
+		overflow:hidden;
+		background-position: bottom;
+		height: 135px;
+	} //portrait
 } //branding
 
 // Navigation --------------------------------------------
@@ -139,14 +163,11 @@ header nav#menu{
 			margin-right:45px;
 		}
 		&:before{
-			height:27px; 
-			width:27px;
 			position:absolute;
-			@include background-size(27px 27px);
+			@include background-size(contain);
 			background-repeat:no-repeat;
-			background-position:center top;
+			background-position:center bottom;
 			left: 50%;
-			margin-left:-13px;
 		} //li:before
 		a{
 			padding-top:40px;
@@ -163,39 +184,72 @@ header nav#menu{
 		&.portfolio{
 			&:before{
 				content: '';
-				background-image:url('images/portfolio-icon-grey.png');
+                height:29px;
+                width:55px;
+				background-image:url('images/portfolio-inactive.gif');
+                margin-left:-27px;
+              margin-top:8px;
+
 			} //before	
-			&:hover, &.current-menu-item{
-				&:before{background-image:url('images/portfolio-icon-orange.png');}
-			} //hover
+			&.current-menu-item{
+				&:before{background-image:url('images/portfolio-active.gif');}
+			} //current-menu
+            &:hover{
+              &:before{background-image:url('images/portfolio-animated.gif');}
+            }
 		} //portfolio
 		&.home{
 			&:before {
 				content: '';
-				background-image:url('images/home-icon-grey.png');
+				background-image:url('images/home-inactive.gif');
+              height:30px;
+              width:38px;
+              margin-left:-19px;
+              margin-top:8px;
 			} //before
-			&:hover, &.current-menu-item{
-				&:before{background-image:url('images/home-icon-orange.png');}
-			}
+			&.current-menu-item{
+				&:before{background-image:url('images/home-active.gif');}
+			} //current
+            &:hover{
+              &:before{background-image:url('images/home-animated.gif');}
+            }
 		} //home
 		&.about{
 			&:before{
 				content: '';
-				background-image:url('images/about-icon-grey.png');
+				background-image:url('images/about-inactive.gif');
+              height:28px;
+              width:34px;
+              margin-left:-17px;
+              margin-top:8px;
 			} //before
-			&:hover, &.current-menu-item{
-				&:before{background-image:url('images/about-icon-orange.png');}
-			} //hover
+			&.current-menu-item{
+				&:before{background-image:url('images/about-active.gif');}
+			} //current
+            &:hover{
+              &:before{
+                background-image:url('images/about-animated.gif');
+              }
+            } //hover
 		} //about
 		&.contact{	
 			margin-right:0;	
 			&:before{
 				content: '';
-				background-image:url('images/contact-icon-grey.png');
+				background-image:url('images/contact-inactive.gif');
+              height:37px;
+              width:48px;
+              margin-left:-24px;
+
 			} //contact:before
-			&:hover, &.current-menu-item{
-				&:before{background-image:url('images/contact-icon-orange.png');}
-			} //hover
+			&.current-menu-item{
+				&:before{background-image:url('images/contact-active.gif');}
+			} //current
+            &:hover{
+              &:before{
+                background-image:url('images/contact-animated.gif');
+              }
+            } //hover
 		} //contact
 	} //li
 } //header nav#menu
@@ -334,6 +388,12 @@ div.hero{
 		}
 		.disabled{display:none}
 	} //&.disabled-directions
+	&.bx-has-controls-direction{
+		height:90px;
+		@include at-breakpoint($desktop){
+			height:70px;
+		}
+	}//bx-has-controls-direction
 	.zoom-slide{
 		display:none !important;
 		@include at-breakpoint($desktop){

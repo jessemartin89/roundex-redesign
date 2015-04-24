@@ -10,11 +10,13 @@ jQuery(document).ready(function($) {
     $('li.contact a').click(function(e){
     	e.preventDefault();
     	$('#contact-header').slideToggle();
+      $('header#header').addClass('removePadding');
 
     }); //li a click
 
     $('#close-contact img').click(function(){
     	$('#contact-header').slideUp();
+      $('header#header').removeClass('removePadding');
     }) //close contact
 
     $('.photo-container .bx-controls-direction').each(function(){
@@ -26,11 +28,12 @@ jQuery(document).ready(function($) {
     }) //each bx controls
 
     $('.bx-controls').each(function(){
-        if(!$(this).hasClass('bx-has-controls-direction')){
-            $(this).prev('.bx-viewport').find('.bx-caption').addClass('full-caption');
+        if($(this).hasClass('disabled-directions')){
+          console.log($(this));
+            $(this).prev('.bxslider').find('.bx-caption').addClass('full-caption');
         }
 
-    }); // each bx-caption
+    }); // each bx-control
 
     var jump=function(e)
     {
